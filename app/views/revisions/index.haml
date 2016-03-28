@@ -1,0 +1,22 @@
+- content_for :title, "HungerStruck » Revisions"
+.container
+  .page-header
+    %h1
+      Revisions
+      %small The modifications made to HungerStruck
+  %table.table
+    %thead
+      %tr
+        %th SHA
+        %th Author
+        %th Commit Message
+    %tbody
+    - @webcommits.each do |c|
+      %tr
+        %td= c.sha[0..5]
+        - u = User.where(email: c.commit.author.email).first
+        - if u
+          %td= link_to(u.username, "/#{u.username}")
+        - else
+          %td= c.commit.author.name
+        %td= c.commit.message
