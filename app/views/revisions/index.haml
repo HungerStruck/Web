@@ -18,5 +18,8 @@
         - if u
           %td= link_to(u.username, "/#{u.username}")
         - else
-          %td= c.commit.author.name
+          - if c.commit.author.name == "skipperguy12"
+            %td skreem
+          - else
+            %td= c.commit.author.name
         %td= c.commit.message
