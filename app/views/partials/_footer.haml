@@ -1,6 +1,9 @@
 %footer
   .footer_bottom
     .container
-      .row
-        %p
-          %a#copyright © #{Time.now.year} Enviark&trade;
+      %p.pull-left
+        %a#copyright © #{Time.now.year} Enviark&trade;
+      .pull-right
+        #revision
+          Current Revision:
+          %code #{revision.sha[0..5]}
