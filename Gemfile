@@ -50,6 +50,7 @@ gem 'redis-rack-cache'
 gem 'gaffe'
 gem "figaro"
 
+gem "git"
 gem "github_api"
 
 # Use ActiveModel has_secure_password

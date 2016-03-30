@@ -1,4 +1,6 @@
+
 class ApplicationController < ActionController::Base
+  before_filter :get_revision
 
   def mongoid_forums_user
     current_user
@@ -10,6 +12,13 @@ class ApplicationController < ActionController::Base
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')
+  end
+
+  private
+  def get_revision
+    if defined? $g
+      @revision = $g.log[0]
+    end
   end
 
 end

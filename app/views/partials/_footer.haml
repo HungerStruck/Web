@@ -11,6 +11,9 @@
       %h5
         Latest revision:
         %i.fa.fa-github
-        %a{href:"https://github.com/thislinkwilljust404", target: "_blank"} 3cd12a
+        - if mongoid_forums_user && mongoid_forums_user.mongoid_forums_admin?
+          %a{href:"https://github.com/HungerStruck/Web/commit/#{revision.sha}", target: "_blank"} #{revision.sha[0..5]}
+        - else
+          %a.not-logged-in #{revision.sha[0..5]}
       %h5
-      %kbd Update footer design, closes #12
+      %kbd #{revision.message}

@@ -6,7 +6,8 @@
         %h1.index-3-jumbotron__heading HungerStruck is...
         %h3.index-3-jumbotron__subheading.hs-is a Minecraft PVP community
       .jumbotron-right
-        %a.btn-lg.btn-primary.register-main{href: "/users/sign_up"} Register
+        - unless current_user
+          %a.btn-lg.btn-primary.register-main{href: "/users/sign_up"} Register
 %br
 %br
 .home-features_2
