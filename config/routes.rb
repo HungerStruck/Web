@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get 'tokens_controller', to: 'tokens#create'
   get '/register/register_user', to: 'registrations#registeruser'
+  
+  get '/revisions', to: 'revisions#index'
 
   get '/:id', to: 'users#show', as: :player
   # Example of regular route:
