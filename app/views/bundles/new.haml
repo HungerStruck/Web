@@ -1,0 +1,15 @@
+%div.page-header
+  %h1
+    = "Create a new bundle"
+
+%div.row
+  .span6.offset3
+    = form_for(@bundle) do |f|
+      = render 'partials/flash_messages'
+      = f.label :name
+      = f.text_field :name
+
+      = f.label :tier
+      /= select("bundle", "tier", 1..3)
+
+      = f.submit "Create bundle", class: "btn btn-large btn-primary"

@@ -1,0 +1,8 @@
+%div.page-header
+  .btn-toolbar.pull-right
+    .btn-group
+      = link_to 'Destroy', @bundle, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger"
+  %h1
+    = @bundle.name
+
+= link_to 'BUY NOW MONEY THANKS', check_out_path({bundle: @bundle.id})

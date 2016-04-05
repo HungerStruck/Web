@@ -1,0 +1,18 @@
+%div.page-header
+  .btn-toolbar.pull-right
+    .btn-group
+      = link_to "Create", new_bundle_path, :class => "btn btn-success"
+  %h1
+    = "Your bundles"
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %th.col-md-5 bundle Name
+    - @bundles.each do |bundle|
+      %tr
+        %td
+          = link_to bundle.name, bundle
+
+
+= paginate @bundles, :theme => 'tb3'

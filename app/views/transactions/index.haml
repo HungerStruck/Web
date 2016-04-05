@@ -1,0 +1,26 @@
+%div.page-header
+  %h1
+    = "Transaction History"
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %th.col-md-6 Server
+      %th.col-md-2 Hours Added
+      %th.col-md-2 Payment Amount
+      %th.col.md.2 Time ago
+    - @transactions.each do |transaction|
+      %tr{:class => transaction.complete ? "success" : "warning"}
+        %td
+          - if transaction.server != nil
+            = link_to transaction.name, transaction.server
+          - else
+            = transaction.name
+        %td
+          = transaction.hours
+        %td
+          = transaction.amount
+        %td
+          = time_ago_in_words(transaction.created_at)
+
+= paginate @transactions, :theme => 'tb3'
