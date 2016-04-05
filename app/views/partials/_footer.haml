@@ -1,6 +1,19 @@
-%footer
-  .footer_bottom
-    .container
-      .row
-        %p
-          %a#copyright © #{Time.now.year} Enviark&trade;
+.env-footer
+  .container
+    .footer-left
+      %h4.brand-header
+        an
+        %a{href: "https://www.enviark.co"} Enviark
+        project
+      %i.fa.fa-twitter
+      %a{href: "https://twitter.com/PlayEnviark", target: "_blank"} @PlayEnviark
+    .footer-right
+      %h5
+        Latest revision:
+        %i.fa.fa-github
+        - if mongoid_forums_user && mongoid_forums_user.mongoid_forums_admin?
+          %a{href:"https://github.com/HungerStruck/Web/commit/#{revision.sha}", target: "_blank"} #{revision.sha[0..5]}
+        - else
+          %a.not-logged-in #{revision.sha[0..5]}
+      %h5
+      %kbd #{revision.message}
