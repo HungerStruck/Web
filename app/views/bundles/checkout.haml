@@ -1,0 +1,15 @@
+%div.page-header
+  %h1
+    Review order details
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Name
+  %tr
+    %td
+      = @bundle.name
+
+%section.pull-right
+  %b
+    = "Total: $#{bundle_price(@hours.to_i , @bundle.tier.to_i)}"
+= link_to "Checkout", check_out_path(:bundle => @bundle.id, :hours => @hours)
