@@ -17,7 +17,11 @@ class ApplicationController < ActionController::Base
   private
   def get_revision
     if defined? $g
-      @revision = $g.log[0]
+      i = 0
+      while $g.log[i].message =~ /\[HIDE\]/i or $g.log[i].message =~ /Merge ?:(pull request|branch) #(.*)/
+        i += 1
+      end
+      @revision = $g.log[i]
     end
   end
 
