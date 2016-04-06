@@ -51,28 +51,21 @@ margin-top:0;
     line-height: 1;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
 html {
   position: relative;
   min-height: 100%;
 }
+
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  overflow-y:auto;
-
-}
-.footer {
-  margin-top: 30px;
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color:  #ffffff ;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
+/* Fix navbar-shadow to work with flexbox body */
+.navbar-shadow:before {
+  top: -18px;
+}
 
 /* Custom page CSS
 -------------------------------------------------- */

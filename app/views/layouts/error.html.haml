@@ -9,6 +9,7 @@
     = csrf_meta_tags
   %body
     = render 'partials/navbar'
-    = render partial: "partials/flash_messages", flash: flash
-    = yield
-    = render 'partials/footer'
+    .main-content
+      = render partial: "partials/flash_messages", flash: flash
+      = yield
+    = render partial: 'partials/footer', locals: {revision: @revision}
