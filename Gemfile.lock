@@ -347,6 +347,3 @@ DEPENDENCIES
   unicorn (= 5.0.1)
   validates_email_format_of
   web-console (~> 2.0)
-
-BUNDLED WITH
-   1.11.2
