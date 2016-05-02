@@ -26,15 +26,11 @@
 
         %ul.nav.navbar-nav.navbar-right
           - if current_user.present?
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0)"}
-                %i.fa.fa-exclamation-circle{style: (@alerts && !@alerts.empty? ? "color:red;" : "") }
-              %ul.dropdown-menu{role: "menu"}
-                - if @alerts == nil || @alerts.empty?
-                  %li
-                    %a{href: "#"}
-                      You have no unread alerts!
-                - elsif @alerts
+            - unless @alerts == nil || @alerts.empty?
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0)"}
+                  %i.fa.fa-exclamation-circle{style: (@alerts && !@alerts.empty? ? "color:red;" : "") }
+                %ul.dropdown-menu{role: "menu"}
                   - @alerts.take(10).each do |al|
                     %li
                       - topic = MongoidForums::Post.find(al.mongoid_forums_topic_post_id).topic
@@ -62,6 +58,6 @@
                 %b.caret
               %ul.dropdown-menu
                 %li
-                  =link_to "Sign in", main_app.new_user_session_path
+                  =link_to "Log In", main_app.new_user_session_path
                 %li
-                  =link_to "Sign up", main_app.new_user_registration_path
+                  =link_to "Sign Up", main_app.new_user_registration_path
