@@ -5,9 +5,17 @@ production:
       database: hungerstruck
       hosts:
         - localhost:27017
+    enviark:
+      database: enviark
+      hosts:
+        - localhost:27017 # will be separate eventually
 development:
   clients:
     default:
       database: hungerstruck_development
+      hosts:
+        - localhost:27017
+    enviark:
+      database: enviark
       hosts:
         - localhost:27017
