@@ -1,11 +1,22 @@
 GIT
-  remote: https://github.com/mongodb/mongoid.git
+  remote: git://github.com/mongodb/mongoid.git
   revision: 4079e285614383504aae0fc1e22a3cffa17eec6b
   specs:
     mongoid (6.0.0)
       activemodel (= 5.0.0.beta4)
       mongo (~> 2.2)
       tzinfo (>= 0.3.37)
+
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 13285d7ef3ffa26ad6275647efbb86740254665b
+  specs:
+    devise (4.0.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
 
 GEM
   remote: https://rubygems.org/
@@ -50,6 +61,7 @@ GEM
     arel (7.0.0)
     autoprefixer-rails (6.3.6)
       execjs
+    bcrypt (3.1.11)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -96,6 +108,7 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    orm_adapter (0.5.0)
     puma (3.4.0)
     rack (2.0.0.alpha)
       json
@@ -132,6 +145,8 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     redis (3.3.0)
+    responders (2.2.0)
+      railties (>= 4.2.0, < 5.1)
     sass (3.4.22)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -160,6 +175,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.6)
+      rack (>= 1.0)
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -170,6 +187,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   coffee-rails (~> 4.1.0)
+  devise!
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
