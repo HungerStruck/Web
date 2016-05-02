@@ -51,6 +51,16 @@ margin-top:0;
     line-height: 1;
 }
 
+.form-label {
+  text-transform: uppercase;
+  color: #8A9091;
+}
+
+.category {
+  border-radius: 0px !important;
+  -webkit-appearance: none;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

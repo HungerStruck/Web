@@ -1,5 +1,23 @@
 = simple_form_for [:admin, @forum] do |f|
-  = f.input :name
-  = f.input :category, collection: MongoidForums::Category.all
-  = f.input :position
-  = f.submit "Update Forum", :class => "btn", :disable_with => "Updating..."
+  .page-header
+    %h1
+      Editing Forum
+      %small
+        = @forum.name
+  .row
+    .form-group.col-xs-8
+      %label.form-label
+        Name
+      = f.input :name, input_html: { class: 'form-control' }, label: false, as: :string
+
+    .form-group.col-xs-8
+      %label.form-label
+        Category
+      = f.input :category, collection: MongoidForums::Category.all, label: false, input_html: { class: 'form-control category', id: 'category' }, selected: @forum.category
+
+    .form-group.col-xs-8
+      %label.form-label
+        Position
+      = f.input :position, input_html: { class: "form-control" }, label: false
+    .col-xs-8
+      = f.submit "Update Forum", :class => "btn btn-default", :disable_with => "Updating..."
