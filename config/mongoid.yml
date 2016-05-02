@@ -1,0 +1,13 @@
+
+production:
+  clients:
+    default:
+      database: hungerstruck
+      hosts:
+        - localhost:27017
+development:
+  clients:
+    default:
+      database: hungerstruck_development
+      hosts:
+        - localhost:27017
