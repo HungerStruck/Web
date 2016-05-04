@@ -21,3 +21,16 @@
     .col
       %strong.text-uppercase Shortest Time Alive
       %h3 Komp
+  .row-6
+    .col
+      %h2 Ranking
+      .panel.panel-default
+        %ul.list-group
+          - 24.times do |i|
+            %a.list-group-item{href: "/p/Halftone"}
+              %span.badge= (29 - i).to_s + ":" + rand(10..59).to_s
+              .row.-no-gutter
+                .col-1= i + 1
+                .col-11= SecureRandom.hex
+    .col
+      %h2 Match statistics
