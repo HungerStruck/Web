@@ -3,3 +3,8 @@
     .row.-no-gutter
       .col
         %h1 Matches
+.container
+  = @matches.each do |match|
+    .panel
+      .panel-body
+        = link_to "Match #{match.id}", match
