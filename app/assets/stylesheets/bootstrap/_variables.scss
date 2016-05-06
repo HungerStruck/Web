@@ -9,16 +9,16 @@ $bootstrap-sass-asset-helper: false !default;
 //## Gray and brand colors for use across Bootstrap.
 
 $gray-base:              #000 !default;
-$gray-darker:            #000; //lighten($gray-base, 13.5%) !default; // #222
-$gray-dark:              #000; //lighten($gray-base, 20%) !default;   // #333
-$gray:                   #000; //lighten($gray-base, 33.5%) !default; // #555
-$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-darker:            $gray-base; //lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              $gray-base; //lighten($gray-base, 20%) !default;   // #333
+$gray:                   $gray-base; //lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 30%) !default; // #777
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
 $brand-primary:         #FD0000 !default;
 $brand-success:         #5cb85c !default;
 $brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
+$brand-warning:         #FFB400 !default;
 $brand-danger:          #d9534f !default;
 
 
@@ -356,7 +356,7 @@ $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2
 $navbar-collapse-max-height:       340px !default;
 
 $navbar-default-color:             #fff !default;
-$navbar-default-bg:                #000 !default;
+$navbar-default-bg:                $gray-base !default;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
 
 // Navbar links
@@ -489,7 +489,7 @@ $jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
 
 $state-success-text:             #3c763d !default;
 $state-success-bg:               #dff0d8 !default;
-$state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
+$state-success-border:           $brand-success !default;
 
 $state-info-text:                #31708f !default;
 $state-info-bg:                  #d9edf7 !default;
@@ -497,7 +497,8 @@ $state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !de
 
 $state-warning-text:             #8a6d3b !default;
 $state-warning-bg:               #fcf8e3 !default;
-$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+//$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+$state-warning-border:           $brand-warning;
 
 $state-danger-text:              #a94442 !default;
 $state-danger-bg:                #f2dede !default;

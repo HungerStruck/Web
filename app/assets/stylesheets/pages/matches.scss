@@ -8,3 +8,20 @@
     box-shadow: 0 0px 20px rgba(0, 0, 0, 0.25);
   }
 }
+
+.match-timeline {
+  .panel {
+    .label {
+      margin-right: 10px;
+    }
+    a {
+      color: $text-color;
+    }
+  }
+  .panel-feast {
+    background: image-url("timeline/chest.png");
+    background-repeat: no-repeat;
+    background-size: 50px;
+    background-position: right center;
+  }
+}

@@ -1,3 +1,6 @@
+- content_for :head do
+  = javascript_include_tag "match_report"
+
 .page-header
   .container
     .row.-no-gutter
@@ -16,14 +19,14 @@
       %strong.text-uppercase Most blocks broken
       %h3 Halftone
     .col
-      %strong.text-uppercase Impressive Accomplishment
+      %strong.text-uppercase Longest killstreak
       %h3 Halftone
     .col
       %strong.text-uppercase Shortest Time Alive
       %h3 Komp
-  .row-6
-    .col
-      %h2 Ranking
+  .row
+    .col-4
+      %h2.page-header Ranking
       .panel.panel-default
         %ul.list-group
           - 24.times do |i|
@@ -31,6 +34,62 @@
               %span.badge= (29 - i).to_s + ":" + rand(10..59).to_s
               .row.-no-gutter
                 .col-1= i + 1
-                .col-11= SecureRandom.hex
-    .col
-      %h2 Match statistics
+                .col-11 Username
+    .col-8
+      %h2.page-header Event timeline
+      .match-timeline
+        .panel.panel-default
+          .panel-body
+            .label.label-default 00:12
+            %a{href: '#'}
+              %strong Halftone
+            killed 
+            %a{href: '#'}
+              %strong Komp
+            using a wooden sword
+
+        .panel.panel-warning.panel-feast
+          .panel-body
+            .label.label-warning 01:56
+            A feast has started
+
+        .panel.panel-default
+          .panel-body
+            .label.label-default 02:01
+            %a{href: '#'}
+              %strong Halftone
+            shot
+            %a{href: '#'}
+              %strong Komp
+            using a bow
+
+        .panel.panel-default
+          .panel-body
+            .label.label-default 04:02
+            %a{href: '#'}
+              %strong Halftone
+            threw
+            %a{href: '#'}
+              %strong Komp
+            into a fire
+
+        .panel.panel-success
+          .panel-body
+            .label.label-success 07:06
+            %a{href: '#'}
+              %strong Halftone
+            found diamonds
+
+        .panel.panel-default
+          .panel-body
+            .label.label-default 08:35
+            %a{href: '#'}
+              %strong Halftone
+            killed 
+            %a{href: '#'}
+              %strong Komp
+            using a diamond sword
+            
+
+      / %h2.page-header Statistics
+      / %canvas#weapons{width: 400, height: 200}
