@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '>= 5.0.0.beta4', '< 5.1'
+gem 'rails', '>= 5.0.0.rc1', '< 5.1'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'haml-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
-gem 'mongoid', github: 'mongodb/mongoid' # gotta use the repo for rails 5
+gem 'mongoid', github: 'kblanks/mongoid' # gotta use the repo for rails 5
 gem 'redis', '~> 3.0'
 gem 'devise', github: 'plataformatec/devise'
 
