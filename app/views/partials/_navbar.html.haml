@@ -1,7 +1,10 @@
 %nav.navbar.navbar-default.navbar-static-top
   .container
     .navbar-header
-      %a.navbar-brand{href: "/"} <strong>Hunger</strong>Struck
+      %a.navbar-brand{href: "/"}
+        .navbar-logo= image_tag("logo.svg")
+        .navbar-brand-content
+          <strong>Hunger</strong>Struck
     %ul.nav.navbar-nav.navbar-right
       %li
         %a{href: "#"} Forums

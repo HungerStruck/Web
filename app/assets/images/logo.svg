@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1540px" height="1540px" viewBox="0 0 1540 1540" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>Alone</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Alone" sketch:type="MSArtboardGroup">
+            <path d="M1120,220 L220,220 L220,620 L920,1320 L1320,1320 L1320,420 L820,920 L620,720 L1120,220 Z" id="Background" fill="#FD0000" sketch:type="MSShapeGroup"></path>
+            <path d="M320,1420 L120,1420 L120,1220 L160,1260 L160,1380 L280,1380 L320,1420 Z" id="Handle-bottom" fill="#FF0000" sketch:type="MSShapeGroup"></path>
+            <path d="M120,920 L320,920 L620,1220 L620,1420 L420,1420 L120,1120 L120,920 Z M160,960 L300,960 L580,1240 L580,1380 L440,1380 L160,1100 L160,960 Z" id="thingy" fill="#FF0000" sketch:type="MSShapeGroup"></path>
+            <path d="M830,910 L860,940 L1460,340 L1460,80 L1200,80 L600,680 L630,710 L1220,120 L1420,120 L1420,320 L830,910 Z" id="Blade-back" fill="#FF0000" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
