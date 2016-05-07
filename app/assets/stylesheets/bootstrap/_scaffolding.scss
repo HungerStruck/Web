@@ -32,6 +32,10 @@ body {
   background-color: $body-bg;
 }
 
+.turbolinks-progress-bar {
+  background: $brand-primary;
+}
+
 // Reset fonts for relevant elements
 input,
 button,
