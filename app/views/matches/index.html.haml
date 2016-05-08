@@ -4,7 +4,11 @@
       .col
         %h1 Matches
 .container
-  - @matches.each do |match|
-    .panel.panel-default
-      .panel-body
-        = link_to "Match #{match.id}", match
+  %h2.page-header Matches in progress
+  .row-4
+    - @matches.each do |match|
+      .col
+        .panel.panel-default
+          .panel-body
+            = link_to "Match #{match.id}", match
+  %h2.page-header Past matches
