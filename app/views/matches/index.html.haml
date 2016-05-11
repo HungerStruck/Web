@@ -6,9 +6,8 @@
 .container
   %h2.page-header Matches in progress
   .row-4
-    - @matches.each do |match|
-      .col
-        .panel.panel-default
-          .panel-body
-            = link_to "Match #{match.id}", match
+    .col
+      %a{href: '/matches/1'}
+        .jumbotron.jumbotron-match-report{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+          %h3 12:54
   %h2.page-header Past matches
