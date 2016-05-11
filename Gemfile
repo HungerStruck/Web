@@ -7,7 +7,7 @@ gem 'haml-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
-gem 'mongoid', github: 'kblanks/mongoid' # gotta use the repo for rails 5
+gem 'mongoid', github: 'mongodb/mongoid' # gotta use the repo for rails 5
 gem 'redis', '~> 3.0'
 gem 'devise', github: 'plataformatec/devise'
 
