@@ -10,4 +10,6 @@
     = yield :head
   %body
     = render 'partials/navbar'
-    = yield
+    .main-content
+      = yield
+    = render 'partials/footer'

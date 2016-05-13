@@ -4,10 +4,11 @@
       .col
         %h1 Matches
 .container
-  %h2.page-header Matches in progress
   .row-4
-    .col
-      %a{href: '/matches/1'}
-        .jumbotron.jumbotron-match-report{style: "background-image: url(#{image_url('home-bg.jpg')});"}
-          %h3 12:54
+    - 3.times do |i|
+      .col
+        %a{href: '/matches/1'}
+          .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+            %h2= 'Map Name ' + (i + 1).to_s
+            .time= rand(3..30).to_s + ':' + rand(10..59).to_s
   %h2.page-header Past matches
