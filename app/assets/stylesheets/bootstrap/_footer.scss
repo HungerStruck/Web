@@ -1,9 +1,19 @@
 footer {
   background: #000000;
   color: #fff;
+  .footer-signup {
+    padding: 30px 0;
+    @include gradient-horizontal(lighten($brand-primary, 10%), darken($brand-primary, 10%));
+    .btn {
+      margin-left: 10px;
+    }
+  }
   .footer-top {
     padding: 30px 0 0 0;
     background: #222;
+    .footer-left {
+      border-right: rgba(255,255,255,0.1) 1px solid; 
+    }
     .footer-title {
       font-size: 14px;
       opacity: 0.8;
