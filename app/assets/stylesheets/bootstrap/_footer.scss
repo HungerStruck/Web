@@ -45,5 +45,13 @@ footer {
     p {
       margin: 0;
     }
+    .copyright {
+      color: #fff;
+      opacity: 0.5;
+      &:hover {
+        color: #fff;
+        opacity: 1;
+      }
+    }
   }
 }
