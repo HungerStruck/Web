@@ -12,6 +12,13 @@
   }
   .buttons {
     margin-top: 20px;
+    .btn {
+      background: $brand-primary;
+      color: #fff;
+      &:hover {
+        transform: scale(0.95);
+      }
+    }
     .create-account {
       margin-top: 5px;
       a {

@@ -30,6 +30,17 @@ body {
   line-height: $line-height-base;
   color: $text-color;
   background-color: $body-bg;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.turbolinks-progress-bar {
+  background: $brand-primary;
 }
 
 // Reset fonts for relevant elements

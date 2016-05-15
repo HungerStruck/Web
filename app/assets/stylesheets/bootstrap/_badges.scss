@@ -57,6 +57,10 @@
   }
 }
 
+.badge-primary {
+  background: $brand-primary;
+}
+
 // Hover state, but only for links
 a.badge {
   &:hover,

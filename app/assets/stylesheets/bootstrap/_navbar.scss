@@ -162,10 +162,25 @@
 
 .navbar-brand {
   float: left;
-  padding: $navbar-padding-vertical $navbar-padding-horizontal;
   font-size: $font-size-large;
   line-height: $line-height-computed;
   height: $navbar-height;
+
+  .navbar-brand-content {
+    display: inline-block;
+    padding: $navbar-padding-vertical $navbar-padding-horizontal $navbar-padding-vertical ($navbar-padding-horizontal / 2);
+  }
+
+  .navbar-logo {
+    display: inline-block;
+    margin-left: $navbar-padding-horizontal;
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    img {
+      height: 100%;
+    }
+  }
 
   &:hover,
   &:focus {
@@ -425,7 +440,6 @@
       &,
       &:hover,
       &:focus {
-        font-weight: bold;
         color: $navbar-default-link-active-color;
         background-color: $navbar-default-link-active-bg;
       }

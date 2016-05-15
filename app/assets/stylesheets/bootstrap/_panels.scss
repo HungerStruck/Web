@@ -5,11 +5,18 @@
 
 // Base class
 .panel {
+  display: block;
   margin-bottom: $line-height-computed;
   background-color: $panel-bg;
   border: 1px solid transparent;
   border-radius: $panel-border-radius;
   @include box-shadow(0 1px 1px rgba(0,0,0,.05));
+}
+a.panel {
+  color: $text-color;
+  &:hover {
+    color: lighten($text-color, 20%);
+  }
 }
 
 // Panel contents
