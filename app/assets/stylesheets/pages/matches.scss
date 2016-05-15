@@ -3,8 +3,20 @@
   padding: 50px 0;
   text-align: center;
   background-size: cover;
-  background: center;
+  background-position: center center;
   color: #fff;
+  transition: 0.5s;
+  border-radius: $border-radius-base;
+  .match-map {
+    font-size: $font-size-h2;
+    display: inline-block;
+    margin: 10px 0;
+  }
+  &:hover {
+    background-color: $gray-light;
+    background-blend-mode: hard-light;
+    transition: 0.5s;
+  }
 }
 
 

@@ -5,10 +5,25 @@
         %h1 Matches
 .container
   .row-4
-    - 3.times do |i|
-      .col
-        %a{href: '/matches/1'}
-          .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
-            %h2= 'Map Name ' + (i + 1).to_s
-            .time= rand(3..30).to_s + ':' + rand(10..59).to_s
+    .col
+      %a{href: '/matches/1'}
+        .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+          .match-map UK
+          .time
+            %i.fa.fa-clock-o
+            = rand(3..30).to_s + ':' + rand(10..59).to_s
+    .col
+      %a{href: '/matches/2'}
+        .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+          .match-map Greenland
+          .time
+            %i.fa.fa-clock-o
+            = rand(3..30).to_s + ':' + rand(10..59).to_s
+    .col
+      %a{href: '/matches/3'}
+        .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+          .match-map Biodomes
+          .time
+            %i.fa.fa-check-circle-o
+            Match Finished
   %h2.page-header Past matches
