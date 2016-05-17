@@ -10,12 +10,56 @@
           .create-account
             or
             %a{href: "#"} create an account
-.container
-  .row-4
-    .col
-      %h2 Key
-    .col
-      %h2 Features
-    .col
-      %h2 Here
 
+.container
+  .home-matches
+    %h2 Matches currently playing
+    .row-4
+      .col
+        %a{href: '/matches/1'}
+          .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+            .match-map UK
+            .time
+              %i.fa.fa-clock-o
+              = rand(3..30).to_s + ':' + rand(10..59).to_s
+      .col
+        %a{href: '/matches/2'}
+          .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+            .match-map Greenland
+            .time
+              %i.fa.fa-clock-o
+              = rand(3..30).to_s + ':' + rand(10..59).to_s
+      .col
+        %a{href: '/matches/3'}
+          .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+            .match-map Biodomes
+            .time
+              %i.fa.fa-check-circle-o
+              Match Finished
+  .row
+    .col-4
+      %h2 Today's top player
+    .col-8
+      %h2 Announcements
+      %hr
+      %h3 New map added!
+      %p Mauris scelerisque nulla ut mauris iaculis, a euismod nulla eleifend. Maecenas consequat interdum nibh, at tincidunt justo commodo eget. Pellentesque ut pharetra tellus, eu pulvinar ligula. Duis ac nisl rhoncus, ultrices eros sed, consequat orci.
+      %p Mauris est dolor, consequat sit amet ante ac, lobortis accumsan dui. In hac habitasse platea dictumst. Aenean nec velit et nibh cursus blandit. Nam nec augue quis nulla hendrerit consectetur a accumsan nulla. Aliquam ac dolor id nulla lobortis adipiscing id quis mauris. Duis arcu nunc, mollis a quam vel, aliquam dignissim neque. Maecenas magna dui, dignissim quis felis sed, tincidunt molestie magna. Proin semper felis in dolor commodo, quis facilisis lorem facilisis.
+      .panel.panel-default
+        .panel-body
+          By
+          %a{href: '/p/Halftone'}
+            %strong{ "data-toggle" => "popover", "title" => "Halftone", "data-placement" => "top", "data-content" => "player_tooltip"} Halftone
+          .pull-right
+            #{Time.now.strftime("%B %d, %Y at %H:%M")}
+      %hr
+      %h3 I ruined everything
+      %p Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam mi orci, pellentesque a est id, rutrum luctus lacus. Nunc nec euismod risus, a vehicula nisi. Nunc porta velit vitae tortor vehicula, non ullamcorper enim pellentesque. Proin dapibus odio ut nisl porttitor pharetra.
+      %p Vestibulum vel augue id nunc euismod imperdiet. Nulla tincidunt nulla dolor, a euismod lacus consectetur nec. Mauris et molestie dui. Mauris ac mi quis neque condimentum iaculis.
+      .panel.panel-default
+        .panel-body
+          By
+          %a{href: '/p/Komp'}
+            %strong{ "data-toggle" => "popover", "title" => "Komp", "data-placement" => "top", "data-content" => "player_tooltip"} Komp
+          .pull-right
+            #{Time.now.strftime("%B %d, %Y at %H:%M")}
