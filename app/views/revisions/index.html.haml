@@ -1,0 +1,24 @@
+.page-header
+  .container
+    .row.-no-gutter
+      .col
+        %h1 Revisions
+.container
+  %table.table
+    %thead
+      %tr
+        %th SHA
+        %th Author
+        %th Commit Message
+    %tbody
+    - @webcommits.each do |c|
+      - next if c.commit.message =~ /\[HIDE\]/i
+      - next if c.commit.message =~ /Merge ?:(pull request|branch) #(.*)/
+      %tr
+        %td= c.sha[0..5]
+        - u = User.where(email: c.commit.author.email).first
+        - if u
+          %td= link_to(u.username, "/#{u.username}")
+        - else
+          %td= c.commit.author.name
+        %td= c.commit.message
