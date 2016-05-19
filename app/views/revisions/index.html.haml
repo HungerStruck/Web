@@ -12,8 +12,6 @@
         %th Commit Message
     %tbody
     - @webcommits.each do |c|
-      - next if c.commit.message =~ /\[HIDE\]/i
-      - next if c.commit.message =~ /Merge ?:(pull request|branch) #(.*)/
       %tr
         %td= c.sha[0..5]
         - u = User.where(email: c.commit.author.email).first

@@ -6,7 +6,10 @@ class RevisionsController < ApplicationController
 
   private
   def get_web_repos
-    @webcommits = $github.repos.commits.all 'HungerStruck', 'Web'
+    commits = $github.repos.commits.all 'HungerStruck', 'Web'
+    @webcommits = commits.select do |c|
+      c.commit.message !~ /Merge/ && c.commit.message !~ /\[HIDE\]/
+    end
   end
 
 end
