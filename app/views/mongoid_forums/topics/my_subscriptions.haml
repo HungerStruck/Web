@@ -1,0 +1,5 @@
+%h2 Your subscriptions
+= paginate @topics
+
+- @topics.each do |sub|
+  = render partial: 'topic', :locals => {:topic => sub.subscribable}
