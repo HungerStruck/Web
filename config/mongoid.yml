@@ -9,6 +9,8 @@ production:
       database: enviark
       hosts:
         - localhost:27017 # will be separate eventually
+  options:
+    belongs_to_required_by_default: false
 development:
   clients:
     default:
@@ -19,3 +21,5 @@ development:
       database: enviark
       hosts:
         - localhost:27017
+  options:
+    belongs_to_required_by_default: false
