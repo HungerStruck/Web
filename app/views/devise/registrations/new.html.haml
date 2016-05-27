@@ -1,21 +1,27 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.page-header
+  .container
+    .row.-no-gutter
+      .col
+        %h1 Sign Up
+
+.container
+  .row
+    .col-md-4.-offset-right-4
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .form-group
+          = f.label :email
+          = f.email_field :email, autofocus: true, :class => "form-control"
+        .form-group
+          = f.label :password
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          = f.password_field :password, autocomplete: "off", :class => "form-control"
+        .field.form-group
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: "off", :class => "form-control"
+        .actions
+          = f.submit "Sign up", :class => "btn btn-primary"
+    .col-md-4
+      = render "devise/shared/links"
