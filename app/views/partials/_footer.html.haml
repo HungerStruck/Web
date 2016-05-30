@@ -9,7 +9,12 @@
         .col.text-right.footer-left
           .footer-title REVISIONS
           .footer-commit
-            Fix signups (#43) * Fix sign ups * recompile assets
+            - if current_user && current_user.mongoid_admin
+              %code
+                %a{href:"https://github.com/HungerStruck/Web/commit/#{revision.sha}", target: "_blank"} #{revision.sha[0..5]}
+            - else
+              %code #{revision.sha[0..5]}
+            #{revision.message}
         .col
           .footer-title SERVER STATUS
           .footer-status
