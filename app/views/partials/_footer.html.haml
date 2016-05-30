@@ -1,8 +1,9 @@
 %footer
-  .footer-signup
-    .container.text-center
-      Join the HungerStruck community
-      %a.btn.btn-white{:href => "#"} Register now
+  - if !current_user
+    .footer-signup
+      .container.text-center
+        Join the HungerStruck community
+        %a.btn.btn-white{:href => "#"} Register now
   .footer-top
     .container
       .row-6.-no-gutter-vert
