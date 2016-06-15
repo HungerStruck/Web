@@ -1,5 +1,5 @@
 .home-header {
-  min-height: calc(100vh - #{$navbar-height});
+  min-height: calc(100vh - #{$navbar-height + 150});
   background-image: image-url("home-bg.jpg");
   background-position: center;
   background-size: cover;
@@ -7,6 +7,9 @@
   text-align: center;
   display: flex;
   align-items: center;
+  .container {
+    padding: 100px 0;
+  }
   h1 {
     line-height: 1.3;
   }
