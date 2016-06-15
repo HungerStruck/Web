@@ -150,27 +150,27 @@ $table-border-color:            #ddd !default;
 $btn-font-weight:                normal !default;
 
 $btn-default-color:              $gray-light !default;
-$btn-default-bg:                 transparentize($gray-light, 0.95) !default;
-$btn-default-border:             #DDDDDD !default;
+$btn-default-bg:                 transparentize($gray-light, .95) !default;
+$btn-default-border:             #ddd !default;
 
 $btn-primary-color:              $brand-primary !default;
-$btn-primary-bg:                 transparentize($brand-primary, 0.9) !default;
+$btn-primary-bg:                 transparentize($brand-primary, .9) !default;
 $btn-primary-border:             $brand-primary !default;
 
 $btn-success-color:              $brand-success !default;
-$btn-success-bg:                 transparentize($brand-success, 0.9) !default;
+$btn-success-bg:                 transparentize($brand-success, .9) !default;
 $btn-success-border:             $brand-success !default;
 
 $btn-info-color:                 $brand-info !default;
-$btn-info-bg:                    transparentize($brand-info, 0.9) !default;
+$btn-info-bg:                    transparentize($brand-info, .9) !default;
 $btn-info-border:                $brand-info !default;
 
 $btn-warning-color:              $brand-warning !default;
-$btn-warning-bg:                 transparentize($brand-warning, 0.9) !default;
+$btn-warning-bg:                 transparentize($brand-warning, .9) !default;
 $btn-warning-border:             $brand-warning !default;
 
 $btn-danger-color:               $brand-danger !default;
-$btn-danger-bg:                  transparentize($brand-danger, 0.9) !default;
+$btn-danger-bg:                  transparentize($brand-danger, .9) !default;
 $btn-danger-border:              $brand-danger !default;
 
 $btn-link-disabled-color:        $gray-light !default;
