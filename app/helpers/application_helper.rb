@@ -8,6 +8,7 @@ module ApplicationHelper
     kills = 50
     deaths = 40
     rank = 30
+    background = 1
 
     snippet = ""
     start = ""
@@ -21,7 +22,7 @@ module ApplicationHelper
       start = '%a{ href: "/p/' + username + '", '
     end
     
-    haml = start + '"data-toggle" => "popover", "title" => "' + username + '", "data-placement" => "top", "data-content" => "player_tooltip", "data-kills" => "' + kills.to_s + '", "data-deaths" => "' + deaths.to_s + '", "data-rank" => "' + rank.to_s + '"} ' + username
+    haml = start + '"data-toggle" => "popover", "title" => "' + username + '", "data-placement" => "top", "data-content" => "player_tooltip", "data-kills" => "' + kills.to_s + '", "data-deaths" => "' + deaths.to_s + '", "data-rank" => "' + rank.to_s + '", "data-bg" => "' + background.to_s + '"} ' + username
     snippet = Haml::Engine.new(haml)
     return snippet.render
   end

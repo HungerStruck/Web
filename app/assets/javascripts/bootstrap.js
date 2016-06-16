@@ -1822,11 +1822,10 @@ if (typeof jQuery === 'undefined') {
       var playerKills = this.$element.attr('data-kills');
       var playerDeaths = this.$element.attr('data-deaths');
       var playerRank = this.$element.attr('data-rank');
+      var playerBackground = this.$element.attr('data-bg');
       // var playerBadges = this.$element.attr('data-badges')
 
-      var playerImage = '/assets/home-bg.jpg';
-
-      $tip.find('.popover-content').css('background-image', 'url("' + playerImage + '")');
+      $tip.find('.popover-content').css('background-image', 'url("/assets/backgrounds/' + playerBackground + '.jpg")');
       $tip.addClass('popover-player');
       content = '<img class="popover-avatar img-rounded" src="https://mcapi.ca/avatar/2d/' + title + '/100">';
       content += '<div class="popover-username">' + title + '</div>';
