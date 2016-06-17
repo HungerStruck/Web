@@ -1827,7 +1827,7 @@ if (typeof jQuery === 'undefined') {
 
       $tip.find('.popover-content').css('background-image', 'url("/assets/backgrounds/' + playerBackground + '.jpg")');
       $tip.addClass('popover-player');
-      content = '<img class="popover-avatar img-rounded" src="https://mcapi.ca/avatar/2d/' + title + '/100">';
+      content = '<img class="popover-avatar" src="https://mcapi.ca/avatar/2d/' + title + '/100">';
       content += '<div class="popover-username">' + title + '</div>';
       content += '<div class="row -no-gutter-vert popover-footer">';
       content += '<div class="col"><div class="num">' + playerKills + '</div>Kills</div>';

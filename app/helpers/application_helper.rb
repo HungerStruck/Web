@@ -26,4 +26,10 @@ module ApplicationHelper
     snippet = Haml::Engine.new(haml)
     return snippet.render
   end
+
+  def user_avatar(username, size)
+    haml = '%img.avatar{src: "https://mcapi.ca/avatar/2d/' + username + '/' + size.to_s + '"}'
+    snippet = Haml::Engine.new(haml)
+    return snippet.render
+  end
 end
