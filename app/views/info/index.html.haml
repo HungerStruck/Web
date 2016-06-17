@@ -38,6 +38,17 @@
               Match Finished
   .row
     .col-4
+      %p.text-muted SERVER STATISTICS
+      %h2 General stats
+      .row
+        .col-6
+          %p
+            %strong Players online
+          %p
+            %strong Matches played
+        .col-6
+          %p 163
+          %p 1294
       %h2.page-header Today's top player
       .panel.panel-default
         .panel-body
@@ -48,19 +59,13 @@
               %h3 Halftone
               %strong 50
               matches won
-      %h2.page-header Server statistics
-      .row
-        .col-6
-          %p
-            %strong Players online
-          %p
-            %strong Matches played
-        .col-6
-          %p 163
-          %p 1294
     .col-8
-      %h2.page-header Announcements
-      %h3 New map added!
+      %p.text-muted LATEST ANNOUNCEMENT
+      %h2.text-center.page-header New map added!
+      .bigger-content
+        %p.lead Mauris scelerisque nulla ut mauris iaculis, a euismod nulla eleifend. Maecenas consequat interdum nibh, at tincidunt justo commodo eget. Pellentesque ut pharetra tellus, eu pulvinar ligula. Duis ac nisl rhoncus, ultrices eros sed, consequat orci.
+        %p Mauris est dolor, consequat sit amet ante ac, lobortis accumsan dui. In hac habitasse platea dictumst. Aenean nec velit et nibh cursus blandit. Nam nec augue quis nulla hendrerit consectetur a accumsan nulla. Aliquam ac dolor id nulla lobortis adipiscing id quis mauris. Duis arcu nunc, mollis a quam vel, aliquam dignissim neque. Maecenas magna dui, dignissim quis felis sed, tincidunt molestie magna. Proin semper felis in dolor commodo, quis facilisis lorem facilisis.
+        %p Ut sit amet magna orci. Integer sit amet varius ipsum. Ut mattis ullamcorper fermentum. Integer pretium felis sit amet urna volutpat, ac elementum ante interdum. Vestibulum varius adipiscing tortor. In accumsan aliquam facilisis. Maecenas odio erat, elementum sit amet laoreet id, egestas nec velit. Nullam interdum enim fringilla orci elementum aliquet. Mauris est dolor, consequat sit amet ante ac, lobortis accumsan dui. In hac habitasse platea dictumst. Aenean nec velit et nibh cursus blandit. Nam nec augue quis nulla hendrerit consectetur a accumsan nulla.
       .panel.panel-default
         .panel-body
           By
@@ -68,18 +73,5 @@
             %strong{ "data-toggle" => "popover", "title" => "Halftone", "data-placement" => "top", "data-content" => "player_tooltip"} Halftone
           .pull-right
             #{Time.now.strftime("%B %d, %Y at %H:%M")}
-      %p Mauris scelerisque nulla ut mauris iaculis, a euismod nulla eleifend. Maecenas consequat interdum nibh, at tincidunt justo commodo eget. Pellentesque ut pharetra tellus, eu pulvinar ligula. Duis ac nisl rhoncus, ultrices eros sed, consequat orci.
-      %p Mauris est dolor, consequat sit amet ante ac, lobortis accumsan dui. In hac habitasse platea dictumst. Aenean nec velit et nibh cursus blandit. Nam nec augue quis nulla hendrerit consectetur a accumsan nulla. Aliquam ac dolor id nulla lobortis adipiscing id quis mauris. Duis arcu nunc, mollis a quam vel, aliquam dignissim neque. Maecenas magna dui, dignissim quis felis sed, tincidunt molestie magna. Proin semper felis in dolor commodo, quis facilisis lorem facilisis.
-      %hr
-      %h3 I ruined everything
-      .panel.panel-default
-        .panel-body
-          By
-          %a{href: '/p/Komp'}
-            %strong{ "data-toggle" => "popover", "title" => "Komp", "data-placement" => "top", "data-content" => "player_tooltip"} Komp
-          .pull-right
-            #{Time.now.strftime("%B %d, %Y at %H:%M")}
-      %p Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam mi orci, pellentesque a est id, rutrum luctus lacus. Nunc nec euismod risus, a vehicula nisi. Nunc porta velit vitae tortor vehicula, non ullamcorper enim pellentesque. Proin dapibus odio ut nisl porttitor pharetra.
-      %p Vestibulum vel augue id nunc euismod imperdiet. Nulla tincidunt nulla dolor, a euismod lacus consectetur nec. Mauris et molestie dui. Mauris ac mi quis neque condimentum iaculis.
       .text-right
         %a.btn.btn-default{:href => "#link to forums"} View all annoucements
