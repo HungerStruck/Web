@@ -23,7 +23,7 @@ class User
   field :username,  type: String
   field :uuid,      type: String
 
-  field :kills,     type: Integer, default: 0
-  field :deaths,    type: Integer, default: 0
-  field :rank,      type: Integer, default: 0
+  field :kills,                 type: Integer, default: 0
+  field :deaths,                type: Integer, default: 0
+  field :background_image,      type: Integer, default: 0
 end
