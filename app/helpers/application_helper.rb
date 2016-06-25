@@ -32,4 +32,8 @@ module ApplicationHelper
     snippet = Haml::Engine.new(haml)
     return snippet.render
   end
+  
+  def title(page_title)
+    content_for :title, "HungerStruck » #{page_title.to_s}"
+  end
 end
