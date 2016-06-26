@@ -6,6 +6,8 @@ class RevisionsController < ApplicationController
 
   private
   def get_web_repos
-    @webcommits = Kaminari.paginate_array(($g.log).to_a, total_count: $g.log.count).page(params[:page])
+    items = ($g.log).to_a
+    items.delete_if { |c| c.message.start_with?('Merge', '[HIDE]')}
+    @webcommits = Kaminari.paginate_array(items, total_count: items.count).page(params[:page]).per(10)
   end
 end

@@ -5,18 +5,18 @@
         %h1 Revisions
 .container
   - @webcommits.each do |c|
-    - if c.message !~ /Merge/ && c.message !~ /\[HIDE\]/
-      .panel.panel-default.panel-revision
-        .panel-body
-          .pull-left
-            %strong= c.message
-          .data.pull-right
-            .author
-              - u = User.where(email: c.author.email).first
-              - if u
-                #{c.author.name} (#{link_to(u.username, "/#{u.username}")})
-              - else
-                = c.author.name
-            %small.text-muted.text-monospace= c.author.date.strftime("%m/%d/%Y %H:%M")
-            %code.label-hash= c.sha[0..5]
+    -# - if c.message !~ /Merge/ && c.message !~ /\[HIDE\]/
+    .panel.panel-default.panel-revision
+      .panel-body
+        .pull-left
+          %strong= c.message
+        .data.pull-right
+          .author
+            - u = User.where(email: c.author.email).first
+            - if u
+              #{c.author.name} (#{link_to(u.username, "/#{u.username}")})
+            - else
+              = c.author.name
+          %small.text-muted.text-monospace= c.author.date.strftime("%m/%d/%Y %H:%M")
+          %code.label-hash= c.sha[0..5]
   =paginate @webcommits, :theme => 'twitter-bootstrap-3'
