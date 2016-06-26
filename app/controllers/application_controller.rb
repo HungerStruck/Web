@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_filter :get_revision
+  before_action :get_revision
 
   private
   def get_revision
