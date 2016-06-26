@@ -1,5 +1,5 @@
 class RevisionsController < ApplicationController
-  before_filter :get_web_repos
+  before_action :get_web_repos
 
   def index
   end
