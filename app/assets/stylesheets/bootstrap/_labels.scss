@@ -64,3 +64,9 @@ a.label {
 .label-danger {
   @include label-variant($label-danger-bg);
 }
+
+.label-hash {
+  color: $gray;
+  border: 1px solid transparentize($gray, 0.7);
+  background-color: transparent;
+}

@@ -88,6 +88,8 @@ mark,
 // Styling
 .text-bold           { font-weight: bold }
 .text-italic         { font-style: italic }
+.text-monospace      { font-family: $font-family-monospace }
+
 // Alignment
 .text-left           { text-align: left; }
 .text-right          { text-align: right; }
@@ -104,6 +106,7 @@ mark,
 .text-muted {
   color: $text-muted;
 }
+
 
 @include text-emphasis-variant('.text-primary', $brand-primary);
 

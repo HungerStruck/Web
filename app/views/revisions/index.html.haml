@@ -4,19 +4,19 @@
       .col
         %h1 Revisions
 .container
-  %table.table
-    %thead
-      %tr
-        %th SHA
-        %th Author
-        %th Commit Message
-    %tbody
-    - @webcommits.each do |c|
-      %tr
-        %td= c.sha[0..5]
-        - u = User.where(email: c.commit.author.email).first
-        - if u
-          %td= link_to(u.username, "/#{u.username}")
-        - else
-          %td= c.commit.author.name
-        %td= c.commit.message
+  - @webcommits.each do |c|
+    - if c.message !~ /Merge/ && c.message !~ /\[HIDE\]/
+      .panel.panel-default.panel-revision
+        .panel-body
+          .pull-left
+            %strong= c.message
+          .data.pull-right
+            .author
+              - u = User.where(email: c.author.email).first
+              - if u
+                #{c.author.name} (#{link_to(u.username, "/#{u.username}")})
+              - else
+                = c.author.name
+            %small.text-muted.text-monospace= c.author.date.strftime("%m/%d/%Y %H:%M")
+            %code.label-hash= c.sha[0..5]
+
