@@ -85,7 +85,9 @@ mark,
   background-color: $state-warning-bg;
   padding: .2em;
 }
-
+// Styling
+.text-bold           { font-weight: bold }
+.text-italic         { font-style: italic }
 // Alignment
 .text-left           { text-align: left; }
 .text-right          { text-align: right; }
