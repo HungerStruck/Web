@@ -1,15 +1,21 @@
 %footer
-  .footer-signup
-    .container.text-center
-      Join the HungerStruck community
-      %a.btn.btn-white{:href => "#"} Register now
-  .footer-top
+  - if !current_user
+    .footer-signup
+      .container.text-center
+        Join the HungerStruck community
+        = link_to "Register now", new_user_registration_path, class: "btn btn-white"
+  .footer-top{:data => {'turbolinks-permanent' => true}}
     .container
       .row-6.-no-gutter-vert
         .col.text-right.footer-left
           .footer-title REVISIONS
           .footer-commit
-            Fix signups (#43) * Fix sign ups * recompile assets
+            - if current_user
+              %code
+                %a{href:"https://github.com/HungerStruck/Web/commit/#{revision.sha}", target: "_blank"} #{revision.sha[0..5]}
+            - else
+              %code #{revision.sha[0..5]}
+            #{revision.message}
         .col
           .footer-title SERVER STATUS
           .footer-status
@@ -53,7 +59,7 @@
                 %a{:href => "#"} Menu
               %li
                 %a{:href => "#"} Menu
-  .footer-bottom
+  .footer-bottom{:data => {'turbolinks-permanent' => true}}
     .container
       .row-6.-no-gutter
         .col

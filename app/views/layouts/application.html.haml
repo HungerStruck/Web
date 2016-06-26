@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title HungerStruck
+    %title= yield :title
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -12,4 +12,4 @@
     = render 'partials/navbar'
     .main-content
       = yield
-    = render 'partials/footer'
+    = render partial: 'partials/footer', locals: {revision: @revision}

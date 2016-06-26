@@ -16,10 +16,10 @@ $gray-light:             #222 !default; // #777
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
 $brand-primary:         #FD0000 !default;
-$brand-success:         #8EC63F !default; //
+$brand-success:         #8EC63F !default;
 $brand-info:            #5bc0de !default;
 $brand-warning:         #FFB400 !default;
-$brand-danger:          #d9534f !default;
+$brand-danger:          $brand-primary !default;
 
 
 //== Scaffolding
@@ -108,7 +108,7 @@ $line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Ch
 $line-height-small:         1.5 !default;
 
 $border-radius-base:        4px !default;
-$border-radius-large:       100px !default;
+$border-radius-large:       6px !default;
 $border-radius-small:       3px !default;
 
 //** Global color for active items (e.g., navs or dropdowns).
@@ -487,22 +487,21 @@ $jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-$state-success-text:             #3c763d !default;
-$state-success-bg:               #dff0d8 !default;
+$state-success-text:             #fff !default;
+$state-success-bg:               $brand-success !default;
 $state-success-border:           $brand-success !default;
 
-$state-info-text:                #31708f !default;
-$state-info-bg:                  #d9edf7 !default;
-$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
+$state-info-text:                #fff !default;
+$state-info-bg:                  $brand-info !default;
+$state-info-border:              $brand-info !default;
 
-$state-warning-text:             #8a6d3b !default;
-$state-warning-bg:               #fcf8e3 !default;
-//$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+$state-warning-text:             #fff !default;
+$state-warning-bg:               $brand-warning !default;
 $state-warning-border:           $brand-warning;
 
-$state-danger-text:              #a94442 !default;
-$state-danger-bg:                #f2dede !default;
-$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
+$state-danger-text:              #fff !default;
+$state-danger-bg:                $brand-danger !default;
+$state-danger-border:            $brand-danger !default;
 
 
 //== Tooltips
