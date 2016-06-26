@@ -18,10 +18,11 @@ module ApplicationHelper
     end
 
     if user.length > 0
-      kills = 50
-      deaths = 40
-      rank = 30
-      background = 1
+      userData = user.first
+      kills = userData.kills
+      deaths = userData.deaths
+      rank = '??'
+      background = userData.background_image
 
       snippet = ""
       
