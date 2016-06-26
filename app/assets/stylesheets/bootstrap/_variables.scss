@@ -61,7 +61,7 @@ $font-size-h5:            $font-size-base !default;
 $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
-$line-height-base:        1.428571429 !default; // 20/14
+$line-height-base:        1.628571429 !default; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
@@ -150,27 +150,27 @@ $table-border-color:            #ddd !default;
 $btn-font-weight:                normal !default;
 
 $btn-default-color:              $gray-light !default;
-$btn-default-bg:                 transparentize($gray-light, 0.9) !default;
-$btn-default-border:             $gray-light !default;
+$btn-default-bg:                 transparentize($gray-light, .95) !default;
+$btn-default-border:             #ddd !default;
 
 $btn-primary-color:              $brand-primary !default;
-$btn-primary-bg:                 transparentize($brand-primary, 0.9) !default;
+$btn-primary-bg:                 transparentize($brand-primary, .9) !default;
 $btn-primary-border:             $brand-primary !default;
 
 $btn-success-color:              $brand-success !default;
-$btn-success-bg:                 transparentize($brand-success, 0.9) !default;
+$btn-success-bg:                 transparentize($brand-success, .9) !default;
 $btn-success-border:             $brand-success !default;
 
 $btn-info-color:                 $brand-info !default;
-$btn-info-bg:                    transparentize($brand-info, 0.9) !default;
+$btn-info-bg:                    transparentize($brand-info, .9) !default;
 $btn-info-border:                $brand-info !default;
 
 $btn-warning-color:              $brand-warning !default;
-$btn-warning-bg:                 transparentize($brand-warning, 0.9) !default;
+$btn-warning-bg:                 transparentize($brand-warning, .9) !default;
 $btn-warning-border:             $brand-warning !default;
 
 $btn-danger-color:               $brand-danger !default;
-$btn-danger-bg:                  transparentize($brand-danger, 0.9) !default;
+$btn-danger-bg:                  transparentize($brand-danger, .9) !default;
 $btn-danger-border:              $brand-danger !default;
 
 $btn-link-disabled-color:        $gray-light !default;
