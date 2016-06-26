@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/amatsuda/kaminari.git
+  revision: abbf93d557208ee1d0b612c612cd079f86ed54f4
+  branch: 0-17-stable
+  specs:
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
+GIT
   remote: git://github.com/mongodb/mongoid.git
   revision: 7c2ff52a0c5292b8e6bf3a9a29bbb19abae3dd5f
   specs:
@@ -60,6 +69,9 @@ GEM
       tzinfo (~> 1.1)
     arel (7.0.0)
     bcrypt (3.1.11)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bson (4.1.1)
     builder (3.2.2)
     coffee-rails (4.1.1)
@@ -199,6 +211,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-kaminari-views
   coffee-rails (~> 4.1.0)
   devise!
   font-awesome-sass
@@ -206,6 +219,7 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari!
   listen (~> 3.0.5)
   mongoid!
   puma (~> 3.0)

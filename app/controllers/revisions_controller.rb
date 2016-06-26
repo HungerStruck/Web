@@ -6,6 +6,6 @@ class RevisionsController < ApplicationController
 
   private
   def get_web_repos
-    @webcommits = $g.log
+    @webcommits = Kaminari.paginate_array(($g.log).to_a, total_count: $g.log.count).page(params[:page])
   end
 end

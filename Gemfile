@@ -23,6 +23,8 @@ group :development do
 end
 
 gem 'git', '~> 1.3'
+gem 'kaminari', github: "amatsuda/kaminari", branch: '0-17-stable'
+gem 'bootstrap-kaminari-views'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
