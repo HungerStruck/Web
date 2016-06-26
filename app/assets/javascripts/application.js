@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require chart
+//= require bootstrap
+//= require user_tooltip
