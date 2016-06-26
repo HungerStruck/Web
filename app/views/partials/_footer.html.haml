@@ -10,7 +10,7 @@
         .col.text-right.footer-left
           .footer-title REVISIONS
           .footer-commit
-            - if current_user && current_user.mongoid_admin
+            - if current_user
               %code
                 %a{href:"https://github.com/HungerStruck/Web/commit/#{revision.sha}", target: "_blank"} #{revision.sha[0..5]}
             - else
