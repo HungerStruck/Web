@@ -13,15 +13,15 @@
       %li{class: active_controller('admin')}
         %a{href: "#"} Admin
 
-- if !flash[:info].blank?
+- if !flash[:notice].blank?
   .alert.alert-header.alert-info.text-center
-    = flash[:info]
+    = flash[:notice]
 - if !flash[:success].blank?
   .alert.alert-header.alert-success.text-center
     = flash[:success]
-- if !flash[:warning].blank?
+- if !flash[:alert].blank?
   .alert.alert-header.alert-warning.text-center
-    = flash[:warning]
+    = flash[:alert]
 - if !flash[:danger].blank?
   .alert.alert-header.alert-danger.text-center
     = flash[:danger]
