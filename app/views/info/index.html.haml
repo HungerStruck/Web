@@ -9,7 +9,14 @@
           %strong HungerStruck
           is a Minecraft PVP community
         .buttons
-          %a.btn.btn-primary.btn-lg{href: "#"} Start Playing
+          #play-button.play-button
+            .disabled-content
+              Start Playing
+            .active-content
+              %code.ip play.hungerstruck.net
+              .version
+                Minecraft
+                %span 1.8
           .create-account
             or
             = link_to "create an account", new_user_registration_path

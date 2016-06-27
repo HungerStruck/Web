@@ -16,3 +16,9 @@
 //= require chart
 //= require bootstrap
 //= require user_tooltip
+
+$(function() {
+  $("#play-button").click(function() {
+    $(this).addClass("activated");
+  });
+});
