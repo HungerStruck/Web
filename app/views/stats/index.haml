@@ -1,0 +1,44 @@
+.page-header
+  .container
+    .row.-no-gutter
+      .col
+        %h1 Stats
+.container
+  %table.table.table-bordered
+    %thead
+      %tr
+        %th
+          = "#"
+        %th
+          Kills
+        %th
+          Deaths
+        %th
+          Wins
+        %th
+          Losses
+        %th
+          K/D
+        %th
+          W/L
+        %th
+          Name
+    %tbody
+      %tr
+        %th{:scope => "row"}
+          1
+        %td
+          234
+        %td
+          100
+        %td
+          23
+        %td
+          14
+        %td
+          = (234/100.to_f).round(2)
+        %td
+          = (23/14.to_f).round(2)
+        %td
+          = user_avatar("skreem", 16)
+          = user_tooltip_element("skreem", true, false)
