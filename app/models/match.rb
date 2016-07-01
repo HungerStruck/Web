@@ -1,7 +1,7 @@
 class Match
   include Mongoid::Document
+  include Mongoid::Timestamps
 
-  field :time, type: Date
   field :state, type: Symbol # either :playing or :ended
 
   field :map,  type: String # will be map object eventually
