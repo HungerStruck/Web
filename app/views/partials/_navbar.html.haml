@@ -6,6 +6,8 @@
         .navbar-brand-content
           <strong>Hunger</strong>Struck
     %ul.nav.navbar-nav.navbar-right
+      %li{class: active_controller('stats')}
+        =link_to "Leaderboard", stats_path
       %li{class: active_controller('forums')}
         %a{href: "#"} Forums
       %li{class: active_controller('matches')}
