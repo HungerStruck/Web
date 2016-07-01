@@ -8,7 +8,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
 gem 'mongoid', github: 'mongodb/mongoid' # gotta use the repo for rails 5
-gem 'redis', '~> 3.0'
+gem "redis"
+gem 'redis-rails', '~> 5.0.0.pre'
+
 gem 'devise', github: 'plataformatec/devise'
 
 gem 'jquery-rails'
