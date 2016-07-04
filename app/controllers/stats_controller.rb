@@ -4,19 +4,19 @@ class StatsController < ApplicationController
     @stats_users = case  params[:period]
       when "today"    #compare to 1
         Rails.cache.fetch("stats_users_today", expires_in: 1.day) do
-         User.all.to_a.each do |user|
+         User.only([:username, :kills, :deaths, :wins, :losses]).to_a.each do |user|
           zero_stats(user)
          end
         end
       when "week"    #compare to 2
         Rails.cache.fetch("stats_users_week", expires_in: 1.week) do
-          User.all.to_a.each do |user|
+          User.only([:username, :kills, :deaths, :wins, :losses]).to_a.each do |user|
            zero_stats(user)
           end
         end
       else
         Rails.cache.fetch("stats_users", expires_in: 30.minutes) do
-         User.all.to_a
+         User.only([:username, :kills, :deaths, :wins, :losses]).to_a
         end
       end
   end
