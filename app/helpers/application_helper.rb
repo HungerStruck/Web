@@ -1,10 +1,18 @@
 module ApplicationHelper
+  def sortable(column, title=nil)
+    title ||= column.titleize
+    direction = column.downcase == sort_column && sort_direction == "asc" ? "desc" : "asc"
+    link_to title, request.query_parameters.merge(:sort => column.downcase, :direction => direction)
+  end
+
   def active_controller(controller)
     return 'active' if params[:controller] == controller
   end
 
-  def active_by_param_match(param, target)
-    return 'active' if params[param] == target
+  def active_by_param_match(param, target, default = false, css = "active")
+    if params[param] == target or !params[param] && default
+        return css
+    end
   end
 
   def user_tooltip_element(username, link, strong)

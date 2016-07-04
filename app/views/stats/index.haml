@@ -10,7 +10,7 @@
       = link_to "Today", request.query_parameters.merge(period: "today")
     %li{:role => "presentation", class: active_by_param_match(:period, "week")}
       = link_to "This week", request.query_parameters.merge(period: "week")
-    %li{:role => "presentation", class: active_by_param_match(:period, "all")}
+    %li{:role => "presentation", class: active_by_param_match(:period, "all", true)}
       = link_to "All Time", request.query_parameters.merge(period: "all")
 
   %table.table.table-bordered
@@ -18,14 +18,18 @@
       %tr
         %th #
         %th Username
-        %th
-          = link_to "Kills", request.query_parameters.merge(:sort => "kills")
-        %th
-          = link_to "Deaths", request.query_parameters.merge(:sort => "deaths")
-        %th
-          = link_to "Wins", request.query_parameters.merge(:sort => "wins")
-        %th
-          = link_to "Losses", request.query_parameters.merge(:sort => "losses")
+        %th{class: active_by_param_match(:sort, "kills", false, "warning")}
+          = sortable "Kills"
+        %th{class: active_by_param_match(:sort, "deaths", false, "warning")}
+          = sortable "Deaths"
+        %th{class: active_by_param_match(:sort, "kd", false, "warning")}
+          = sortable "kd", "K/D"
+        %th{class: active_by_param_match(:sort, "wins", false, "warning")}
+          = sortable "Wins"
+        %th{class: active_by_param_match(:sort, "losses", false, "warning")}
+          = sortable "Losses"
+        %th{class: active_by_param_match(:sort, "wl", false, "warning")}
+          = sortable "wl", "W/L"
     %tbody
       - @stats_users.each_with_index do |user, index|
         %tr
@@ -38,6 +42,10 @@
         %td
           = user["deaths"]
         %td
+          = user["kd"]
+        %td
           = user["wins"]
         %td
           = user["losses"]
+        %td
+          = user["wl"]
