@@ -7,26 +7,30 @@
 
   %ul.nav.nav-pills
     %li{:role => "presentation", class: active_by_param_match(:period, "today")}
-      = link_to "Today", {period: :today}
+      = link_to "Today", request.query_parameters.merge(period: "today")
     %li{:role => "presentation", class: active_by_param_match(:period, "week")}
-      = link_to "This week", {period: :week}
+      = link_to "This week", request.query_parameters.merge(period: "week")
     %li{:role => "presentation", class: active_by_param_match(:period, "all")}
-      = link_to "All Time", {period: :all}
+      = link_to "All Time", request.query_parameters.merge(period: "all")
 
   %table.table.table-bordered
     %thead
       %tr
         %th #
         %th Username
-        %th Kills
-        %th Deaths
-        %th Wins
-        %th Losses
+        %th
+          = link_to "Kills", request.query_parameters.merge(:sort => "kills")
+        %th
+          = link_to "Deaths", request.query_parameters.merge(:sort => "deaths")
+        %th
+          = link_to "Wins", request.query_parameters.merge(:sort => "wins")
+        %th
+          = link_to "Losses", request.query_parameters.merge(:sort => "losses")
     %tbody
       - @stats_users.each_with_index do |user, index|
         %tr
         %th{:scope => "row"}
-          = index
+          = index + 1
         %td
           = user["username"]
         %td
