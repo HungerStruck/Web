@@ -10,6 +10,8 @@ class StatsController < ApplicationController
       when "all"
         get_stats_or_insert("all", sort_column)
       end
+
+    @kaminari_stats_users = Kaminari.paginate_array(@stats_users).page(stats_params[:page])
   end
 
   private
@@ -26,7 +28,7 @@ class StatsController < ApplicationController
   end
 
   def stats_params
-    params.permit(:sort, :period, :direction)
+    params.permit(:sort, :period, :direction, :page)
   end
 
 

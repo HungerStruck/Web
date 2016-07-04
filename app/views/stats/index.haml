@@ -22,7 +22,7 @@
           = sortable "Kills"
         %th{class: active_by_param_match(:sort, "deaths", false, "warning")}
           = sortable "Deaths"
-        %th{class: active_by_param_match(:sort, "kd", false, "warning")}
+        %th{class: active_by_param_match(:sort, "kd", true, "warning")}
           = sortable "kd", "K/D"
         %th{class: active_by_param_match(:sort, "wins", false, "warning")}
           = sortable "Wins"
@@ -31,10 +31,11 @@
         %th{class: active_by_param_match(:sort, "wl", false, "warning")}
           = sortable "wl", "W/L"
     %tbody
-      - @stats_users.each_with_index do |user, index|
+      = paginate @kaminari_stats_users
+      - @kaminari_stats_users.each_with_index do |user, index|
         %tr
         %th{:scope => "row"}
-          = index + 1
+          = (25 * (params[:page].to_i == 0 ? 0 : params[:page].to_i - 1)) + index + 1
         %td
           = user["username"]
         %td
@@ -49,3 +50,4 @@
           = user["losses"]
         %td
           = user["wl"]
+  = paginate @kaminari_stats_users
