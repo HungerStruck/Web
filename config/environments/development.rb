@@ -20,10 +20,21 @@ Rails.application.configure do
     config.public_file_server.headers = {
       'Cache-Control' => 'public, max-age=172800'
     }
+
+    puts "Alert: You are using in memory caching as opposed to Redis! Create a file in tmp called caching-dev-redis to trust a redis connection to localhost instead"
+  elsif Rails.root.join('tmp/caching-dev-redis.txt').exist?
+    config.action_controller.perform_caching = true
+    config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 10.minutes }
+
+
+    puts "Using redis caching"
   else
     config.action_controller.perform_caching = false
 
     config.cache_store = :null_store
+
+
+        puts "Alert: You are using no caching as opposed to Redis! Create a file in tmp called caching-dev-redis to trust a redis connection to localhost instead"
   end
 
   # Don't care if the mailer can't send.
@@ -45,4 +56,6 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

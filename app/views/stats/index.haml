@@ -1,0 +1,39 @@
+.page-header
+  .container
+    .row.-no-gutter
+      .col
+        %h1 Statistics
+.container
+
+  %ul.nav.nav-pills
+    %li{:role => "presentation", class: active_by_param_match(:period, "today")}
+      = link_to "Today", {period: :today}
+    %li{:role => "presentation", class: active_by_param_match(:period, "week")}
+      = link_to "This week", {period: :week}
+    %li{:role => "presentation", class: active_by_param_match(:period, "all")}
+      = link_to "All Time", {period: :all}
+
+  %table.table.table-bordered
+    %thead
+      %tr
+        %th #
+        %th Username
+        %th Kills
+        %th Deaths
+        %th Wins
+        %th Losses
+    %tbody
+      - @stats_users.each_with_index do |user, index|
+        %tr
+        %th{:scope => "row"}
+          = index
+        %td
+          = user.username
+        %td
+          = user.kills
+        %td
+          = user.deaths
+        %td
+          = user.wins
+        %td
+          = user.losses

@@ -3,6 +3,10 @@ module ApplicationHelper
     return 'active' if params[:controller] == controller
   end
 
+  def active_by_param_match(param, target)
+    return 'active' if params[param] == target
+  end
+
   def user_tooltip_element(username, link, strong)
     user = User.where(username: username)
 
@@ -25,7 +29,7 @@ module ApplicationHelper
       background = userData.background_image
 
       snippet = ""
-      
+
       haml = start + '"data-toggle" => "popover", "title" => "' + username + '", "data-placement" => "top", "data-content" => "player_tooltip", "data-kills" => "' + kills.to_s + '", "data-deaths" => "' + deaths.to_s + '", "data-rank" => "' + rank.to_s + '", "data-bg" => "' + background.to_s + '"} ' + username
     else
       haml = start + '} ' + username

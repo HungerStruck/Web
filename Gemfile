@@ -8,7 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
 gem 'mongoid', github: 'mongodb/mongoid' # gotta use the repo for rails 5
-gem 'redis', '~> 3.0'
+gem "redis-rails", '5.0.0.pre' # Will install several other redis-* gems
 gem 'devise', github: 'plataformatec/devise'
 
 gem 'jquery-rails'
@@ -20,6 +20,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 end
 
 gem 'git', '~> 1.3'

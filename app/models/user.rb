@@ -25,5 +25,8 @@ class User
 
   field :kills,                 type: Integer, default: 0
   field :deaths,                type: Integer, default: 0
+  field :wins,                  type: Integer, default: 0
+  field :losses,                type: Integer, default: 0
+
   field :background_image,      type: Integer, default: 0
 end
