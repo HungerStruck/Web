@@ -22,6 +22,13 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem 'peek'
+gem 'peek-git'
+gem 'peek-redis'
+gem 'peek-moped'
+gem 'peek-rblineprof'
+gem 'peek-performance_bar'
+
 gem 'git', '~> 1.3'
 gem 'kaminari', github: "amatsuda/kaminari", branch: '0-17-stable'
 gem 'bootstrap-kaminari-views'
