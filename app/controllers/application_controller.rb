@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :get_revision
 
+  # Make this work before putting the website online
+  # def peek_enabled?
+  #   current_user.admin?
+  # end
+
   private
   def get_revision
     if defined? $g
@@ -12,5 +17,4 @@ class ApplicationController < ActionController::Base
       @revision = $g.log[i]
     end
   end
-
 end
