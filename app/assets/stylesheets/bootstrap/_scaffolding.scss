@@ -54,6 +54,17 @@ textarea {
 }
 
 
+// Selection color
+::selection {
+  background: $brand-primary;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: $brand-primary;
+  color: #fff;
+}
+
 // Links
 
 a {

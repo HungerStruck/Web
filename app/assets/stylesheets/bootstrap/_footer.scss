@@ -4,6 +4,8 @@ footer {
   .footer-signup {
     padding: 30px 0;
     @include gradient-horizontal(lighten($brand-primary, 10%), darken($brand-primary, 10%));
+    background-image: image-url("sign-up-background.svg"), linear-gradient(to right, #ff3131 0%, #ca0000 100%);
+    background-position: center center;
     .btn {
       margin-left: 10px;
     }
