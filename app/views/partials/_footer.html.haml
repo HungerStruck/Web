@@ -2,7 +2,7 @@
   - if !current_user
     .footer-signup
       .container.text-center
-        Join the HungerStruck community
+        Join the #{render 'partials/name'} community
         = link_to "Register now", new_user_registration_path, class: "btn btn-white"
   .footer-top{:data => {'turbolinks-permanent' => true}}
     .container
