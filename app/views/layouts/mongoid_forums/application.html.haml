@@ -10,7 +10,6 @@
     = yield :head
   %body
     = render 'partials/navbar'
-    = render partial: "partials/flash_messages", flash: flash
     .main-content
       = yield
     = render 'partials/footer'
