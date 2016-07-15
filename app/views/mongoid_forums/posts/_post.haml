@@ -1,24 +1,25 @@
-= post.user.forum_display_name
-%span.text-muted
-  = time_ago_in_words(post.created_at)
-  ago
+- if @posts[0].id.to_json != post.id.to_json
+  = user_tooltip_element(post.user.forum_display_name, true, false)
+  %span.text-muted
+    = time_ago_in_words(post.created_at)
+    ago
 
-/ - if post.reply_to_id
-/   replied to
-/   = MongoidForums::Post.find(post.reply_to_id).user.forum_display_name
+  / - if post.reply_to_id
+  /   replied to
+  /   = MongoidForums::Post.find(post.reply_to_id).user.forum_display_name
 
-= link_to 'Quote', new_topic_post_path(post.topic_id, :reply_to_id => post.id), :class => "btn btn-default btn-sm"
-- if mongoid_forums_user && post.owner_or_admin?(mongoid_forums_user)
-  - if can?(:edit_post, post.topic.forum)
-    = link_to "Edit", edit_topic_post_path(post.topic_id, post), :class => "btn btn-default btn-sm"
-  - if can?(:destroy_post, post.topic.forum)
-    = button_to "Delete", topic_post_path(post.topic_id, post), :method => :delete, :class => "btn btn-danger btn-sm"
+  = link_to 'Quote', new_topic_post_path(post.topic_id, :reply_to_id => post.id), :class => "btn btn-default btn-sm"
+  - if mongoid_forums_user && post.owner_or_admin?(mongoid_forums_user)
+    - if can?(:edit_post, post.topic.forum)
+      = link_to "Edit", edit_topic_post_path(post.topic_id, post), :class => "btn btn-default btn-sm"
+    - if can?(:destroy_post, post.topic.forum)
+      = button_to "Delete", topic_post_path(post.topic_id, post), :method => :delete, :class => "btn btn-danger btn-sm"
 
 
-%br
-- if post.reply_to_id
-  = render :partial => 'mongoid_forums/posts/quoted', :locals => {:post => post}
   %br
-= mongoid_forums_format(post.text)
-%br
-%hr
+  - if post.reply_to_id
+    = render :partial => 'mongoid_forums/posts/quoted', :locals => {:post => post}
+    %br
+  = mongoid_forums_format(post.text)
+  %br
+  %hr

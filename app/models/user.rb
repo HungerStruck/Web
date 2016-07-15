@@ -28,6 +28,6 @@ class User
   field :background_image,      type: Integer, default: 0
 
   def forum_display_name
-    email
+    username
   end
 end

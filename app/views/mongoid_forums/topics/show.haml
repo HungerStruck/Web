@@ -18,14 +18,29 @@
       .col
         %h1= @forum.name
 .container
-  - if @topic.can_be_replied_to? && can?(:reply, @topic)
-    = link_to "Reply to topic", new_topic_post_path(@topic), :class => "btn btn-default"
-  - if mongoid_forums_user && @topic.subscriber?(mongoid_forums_user.id)
-    = link_to "Unsubscribe", unsubscribe_topic_path(@topic), :class => "btn btn-default"
-  -elsif mongoid_forums_user
-    = link_to "Subscribe", subscribe_topic_path(@topic), :class => "btn btn-default"
-  %h1 Viewing Topic "#{@topic.emojified_name}"
-  %br
-  = paginate @posts
-  %br
-  = render @posts
+  .row
+    .col-9
+      .panel.panel-default
+        .panel-body
+          %h2.text-center.page-header= @topic.emojified_name
+          .bigger-content
+            = mongoid_forums_format(@posts[0].text)
+      %div
+        = paginate @posts, :theme => 'twitter-bootstrap-3'
+
+      = render @posts, :locals => {:posts => @posts}
+    .col-3
+      - if @topic.can_be_replied_to? && can?(:reply, @topic)
+        = link_to "Reply to topic", new_topic_post_path(@topic), :class => "btn btn-primary btn-block"
+      - if mongoid_forums_user && @topic.subscriber?(mongoid_forums_user.id)
+        = link_to "Unsubscribe", unsubscribe_topic_path(@topic), :class => "btn btn-default btn-block"
+      -elsif mongoid_forums_user
+        = link_to "Subscribe", subscribe_topic_path(@topic), :class => "btn btn-default btn-block"
+      %hr
+        %p
+          Post by
+          = user_tooltip_element(@posts[0].user.forum_display_name, true, false)
+        %p
+          Created
+          = time_ago_in_words(@posts[0].created_at)
+          ago
