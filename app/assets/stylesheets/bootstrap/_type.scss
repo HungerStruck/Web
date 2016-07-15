@@ -74,6 +74,15 @@ p {
   font-size: $font-size-base + 2px
 }
 
+// HungerStruck logo
+// -------------------------
+.hungerstruck {
+  display: inline-block;
+  font-weight: 700 !important;
+  span {
+    font-weight: 500 !important;
+  }
+}
 
 // Emphasis & misc
 // -------------------------

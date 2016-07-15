@@ -1,27 +1,31 @@
 - content_for :head do
   - title 'Login'
-.page-header
+.devise-container
+  .devise-bg
   .container
-    .row.-no-gutter
+    .row.row-12.row-sm-6
       .col
-        %h1 Login
-.container
-  .row
-    .col-12.col-sm-6.col-lg-4
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .form-group
-          = f.label :email
-          %br/
-          = f.email_field :email, autofocus: true, class: "form-control"
-        .form-group
-          = f.label :password
-          %br/
-          = f.password_field :password, autocomplete: "off", class: "form-control"
-        - if devise_mapping.rememberable?
-          .form-group
-            = f.check_box :remember_me
-            = f.label :remember_me
-        .actions
-          = f.submit "Log in", class: "btn btn-default"
-      %hr
-      = render "devise/shared/links"
+        %h1
+          Log in to
+          = render "partials/name"
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group.form-group-lg
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, class: "form-control"
+          .form-group.form-group-lg
+            = f.label :password
+            %br/
+            = f.password_field :password, autocomplete: "off", class: "form-control"
+          - if devise_mapping.rememberable?
+            .form-group
+              = f.check_box :remember_me
+              = f.label :remember_me
+          .actions
+            = f.submit "Log in", class: "btn btn-white"
+        = render "devise/shared/links"
+      .col
+        %h1 Not yet a member?
+        = render "devise/shared/register-text"
+        = link_to "Register now", new_user_registration_path, class: "btn btn-primary"
+
