@@ -1,19 +1,19 @@
 - content_for :head do
   - title 'Resend confirmation instructions'
-.page-header
+.devise-container
+  .devise-bg
   .container
-    .row.-no-gutter
+    .row.row-12.row-sm-6
       .col
         %h1 Resend confirmation instructions
-.container
-  .row
-    .col-12.col-sm-6.col-lg-4
-      = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-        = devise_error_messages!
-        .form-group
-          = f.label :email
-          %br/
-          = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control"
-        = f.submit "Resend confirmation instructions", class: "btn btn-default"
-      %hr
-      = render "devise/shared/links"
+        = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+          = devise_error_messages!
+          .form-group
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control"
+          = f.submit "Resend confirmation instructions", class: "btn btn-white"
+        = render "devise/shared/links"
+      .col
+        %h1 Let's get started!
+        = render "devise/shared/register-text"

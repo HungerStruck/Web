@@ -26,6 +26,6 @@
         = render "devise/shared/links"
       .col
         %h1 Not yet a member?
-        %p.lead Creating a HungerStruck account will give you access to many special features and rewards.
+        = render "devise/shared/register-text"
         = link_to "Register now", new_user_registration_path, class: "btn btn-primary"
 
