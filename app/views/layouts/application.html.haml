@@ -11,7 +11,6 @@
   %body
     = render 'peek/bar'
     = render 'partials/navbar'
-    = render partial: "partials/flash_messages", flash: flash
     .main-content
       = yield
     = render partial: 'partials/footer', locals: {revision: @revision}

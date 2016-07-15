@@ -3,7 +3,6 @@
 - @categories.each do |category|
   %h2
     = category.name
-    Category
   - if category.moderator?(mongoid_forums_user)
     %b You are a moderator of this category
   %table{:border => "1"}
