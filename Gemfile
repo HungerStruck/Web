@@ -17,6 +17,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'font-awesome-sass'
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 
+gem 'mongoid-forums', github: 'kblanks/mongoid_forums', branch: 'rails-5'
+gem 'kaminari'
+
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount MongoidForums::Engine, :at => "/forums"
   devise_for :users
   root 'info#index'
 
