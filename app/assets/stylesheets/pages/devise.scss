@@ -26,11 +26,15 @@
     color: #fff;
   }
   a {
-    opacity: 0.6;
     color: #fff;
     &:hover {
-      opacity: 1;
       color: #fff;
+    }
+  }
+  a:not(.btn) {
+    opacity: 0.6;
+    &:hover {
+      opacity: 1;
     }
   }
 }
