@@ -1,0 +1,13 @@
+.panel-revision {
+  .data {
+    > small {
+      margin-right: 10px;
+      padding-left: 10px;
+      border-left: 1px solid $panel-default-border;
+    }
+    .author {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}

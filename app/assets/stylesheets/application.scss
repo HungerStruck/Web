@@ -13,8 +13,31 @@
  * require_tree .
  * require_self
  */
+
+//= require peek
+//= require peek/views/performance_bar
+//= require peek/views/rblineprof
  
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bootstrap.scss";
 @import "pages/*";
+
+#peek {
+  .wrapper {
+    width: 80%;
+    max-width: 1200px;
+  }
+}
+.peek-rblineprof-modal {
+  width: 100%;
+  position: absolute;
+  z-index: 10000;
+  left: 50%;
+  top: 50px;
+  margin-left: -50%;
+}
+.peek-rblineprof-file pre.duration {
+  float: left;
+  width: 300px;
+}

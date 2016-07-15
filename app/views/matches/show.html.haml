@@ -10,21 +10,21 @@
 
 .container
   .jumbotron.jumbotron-match-report{style: "background-image: url(#{image_url('home-bg.jpg')});"}
-    %img.avatar{src: "https://mcapi.ca/avatar/2d/Halftone/150"}
+    =user_avatar('Halftone', 150)
     %h2 Halftone won
   .row
     .col
       %strong.text-uppercase Most Kills
-      %h3 Halftone
+      %h3= user_tooltip_element('Halftone', true, false)
     .col
       %strong.text-uppercase Most blocks broken
-      %h3 Halftone
+      %h3= user_tooltip_element('Halftone', true, false)
     .col
       %strong.text-uppercase Longest killstreak
-      %h3 Halftone
+      %h3= user_tooltip_element('Halftone', true, false)
     .col
       %strong.text-uppercase Shortest Time Alive
-      %h3 Komp
+      %h3= user_tooltip_element('Komp', true, false)
   .row
     .col-12.col-md-6.col-lg-4
       %h2.page-header Ranking
@@ -42,38 +42,31 @@
         .panel.panel-default
           .panel-body
             .label.label-default 08:35
-            %a{href: '#'}
-              %strong Halftone
-            killed
-            %a{href: '#'}
-              %strong Komp
+            =user_tooltip_element('Halftone', true, true)
+            killed 
+            =user_tooltip_element('Komp', true, true)
             using a diamond sword
 
         .panel.panel-success
           .panel-body
             .label.label-success 07:06
-            %a{href: '#'}
-              %strong Halftone
+            =user_tooltip_element('Halftone', true, true)
             found diamonds
 
         .panel.panel-default
           .panel-body
             .label.label-default 04:02
-            %a{href: '#'}
-              %strong Halftone
+            =user_tooltip_element('Halftone', true, true)
             threw
-            %a{href: '#'}
-              %strong Komp
+            =user_tooltip_element('Komp', true, true)
             into a fire
 
         .panel.panel-default
           .panel-body
             .label.label-default 02:01
-            %a{href: '#'}
-              %strong Halftone
+            =user_tooltip_element('Halftone', true, true)
             shot
-            %a{href: '#'}
-              %strong Komp
+            =user_tooltip_element('Komp', true, true)
             using a bow
 
         .panel.panel-warning.panel-feast
@@ -84,12 +77,7 @@
         .panel.panel-default
           .panel-body
             .label.label-default 00:12
-            %a{href: '#'}
-              %strong Halftone
-            killed
-            %a{href: '#'}
-              %strong Komp
+            =user_tooltip_element('Halftone', true, true)
+            killed 
+            =user_tooltip_element('Komp', true, true)
             using a wooden sword
-
-      / %h2.page-header Statistics
-      / %canvas#weapons{width: 400, height: 200}

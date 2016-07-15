@@ -10,9 +10,9 @@ footer {
   }
   .footer-top {
     padding: 30px 0 0 0;
-    background: #222;
+    background: $gray-light;
     .footer-left {
-      border-right: rgba(255,255,255,0.1) 1px solid; 
+      border-right: rgba(255,255,255,0.1) 1px solid;
     }
     .footer-title {
       font-size: 14px;
@@ -25,18 +25,34 @@ footer {
         font-size: 12px;
       }
     }
+    .footer-commit {
+      code {
+        color: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        background-color: transparent;
+        margin-right: 7px;
+      }
+      code a {
+        color: inherit;
+      }
+    }
     .footer-menu {
       font-size: 14px;
       margin-top: 30px;
       padding-top: 30px;
-      border-top: rgba(255,255,255,0.1) 1px solid; 
+      border-top: rgba(255,255,255,0.1) 1px solid;
       a {
-        opacity: 0.8;
+        opacity: 0.6;
         color: #fff;
         &:hover {
           opacity: 1;
           color: #fff;
         }
+      }
+      .text-discord {
+        opacity: 1;
+        color: #7289DA;
+        font-weight: bold;
       }
     }
   }
@@ -53,5 +69,9 @@ footer {
         opacity: 1;
       }
     }
+  }
+  .logo {
+    width: 18px;
+    margin-top: -2px;
   }
 }

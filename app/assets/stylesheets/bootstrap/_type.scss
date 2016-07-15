@@ -70,6 +70,10 @@ p {
   }
 }
 
+.bigger-content {
+  font-size: $font-size-base + 2px
+}
+
 
 // Emphasis & misc
 // -------------------------
@@ -85,6 +89,10 @@ mark,
   background-color: $state-warning-bg;
   padding: .2em;
 }
+// Styling
+.text-bold           { font-weight: bold }
+.text-italic         { font-style: italic }
+.text-monospace      { font-family: $font-family-monospace }
 
 // Alignment
 .text-left           { text-align: left; }
@@ -103,6 +111,7 @@ mark,
   color: $text-muted;
 }
 
+
 @include text-emphasis-variant('.text-primary', $brand-primary);
 
 @include text-emphasis-variant('.text-success', $state-success-text);
@@ -112,6 +121,8 @@ mark,
 @include text-emphasis-variant('.text-warning', $state-warning-text);
 
 @include text-emphasis-variant('.text-danger', $state-danger-text);
+
+@include text-emphasis-variant('.text-discord', #7289DA);
 
 // Contextual backgrounds
 // For now we'll leave these alongside the text classes until v4 when we can
