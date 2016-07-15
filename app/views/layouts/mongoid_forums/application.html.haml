@@ -9,6 +9,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = yield :head
   %body
+    = render 'peek/bar'
     = render 'partials/navbar'
     .main-content
       = yield
