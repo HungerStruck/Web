@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5.x'
 gem 'jbuilder', '~> 2.0'
 gem 'font-awesome-sass'
+gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 
 group :development do
   gem 'listen', '~> 3.0.5'

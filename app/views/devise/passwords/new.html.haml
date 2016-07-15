@@ -1,19 +1,23 @@
 - content_for :head do
   - title 'Forgot your password?'
-.page-header
+.devise-container
+  .devise-bg
   .container
-    .row.-no-gutter
+    .row.row-12.row-sm-6
+      .col
+        %h1
+          Reset your password
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = devise_error_messages!
+          .form-group
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, class: "form-control"
+          = f.submit "Send me reset password instructions", class: "btn btn-white"
+        = render "devise/shared/links"
       .col
         %h1 Forgot your password?
-.container
-  .row
-    .col-12.col-sm-6.col-lg-4
-      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-        = devise_error_messages!
-        .form-group
-          = f.label :email
-          %br/
-          = f.email_field :email, autofocus: true, class: "form-control"
-        = f.submit "Send me reset password instructions", class: "btn btn-default"
-      %hr
-      = render "devise/shared/links"
+        %p.lead We recommend using a password manager to keep track of all your passwords. 
+        %p
+          :markdown
+            There are many free password managers like Dashlane and Lastpass. For a compresensive list of password managers, have a look at [this Wired article]('http://www.wired.com/2016/01/you-need-a-password-manager/').
