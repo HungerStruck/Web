@@ -1,16 +1,31 @@
-%h1 Viewing Topic "#{@topic.emojified_name}"
-- if mongoid_forums_admin?
-  = link_to t("mongoid_forums.topics.actions.hide.#{@topic.hidden}"), toggle_hide_admin_topic_path(@forum, @topic), :class => "btn"
-  = link_to t("mongoid_forums.topics.actions.lock.#{@topic.locked}"), toggle_lock_admin_topic_path(@forum, @topic), :class => "btn"
-  = link_to t("mongoid_forums.topics.actions.pin.#{@topic.pinned}"), toggle_pin_admin_topic_path(@forum, @topic), :class => "btn"
+- content_for :head do
+  - title @forum.name + ' - Forums'
 
-- if @topic.can_be_replied_to? && can?(:reply, @topic)
-  = link_to "Reply to topic", new_topic_post_path(@topic)
-- if mongoid_forums_user && @topic.subscriber?(mongoid_forums_user.id)
-  = link_to "Unsubscribe", unsubscribe_topic_path(@topic)
--elsif mongoid_forums_user
-  = link_to "Subscribe", subscribe_topic_path(@topic)
-%br
-= paginate @posts
-%br
-= render @posts
+- if mongoid_forums_admin?
+  %nav.navbar.navbar-inverse.navbar-static-top
+    .container
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to t("mongoid_forums.topics.actions.hide.#{@topic.hidden}"), toggle_hide_admin_topic_path(@forum, @topic)
+        %li
+          = link_to t("mongoid_forums.topics.actions.lock.#{@topic.locked}"), toggle_lock_admin_topic_path(@forum, @topic)
+        %li
+          = link_to t("mongoid_forums.topics.actions.pin.#{@topic.pinned}"), toggle_pin_admin_topic_path(@forum, @topic)
+
+.page-header
+  .container
+    .row.-no-gutter
+      .col
+        %h1= @forum.name
+.container
+  - if @topic.can_be_replied_to? && can?(:reply, @topic)
+    = link_to "Reply to topic", new_topic_post_path(@topic), :class => "btn btn-default"
+  - if mongoid_forums_user && @topic.subscriber?(mongoid_forums_user.id)
+    = link_to "Unsubscribe", unsubscribe_topic_path(@topic), :class => "btn btn-default"
+  -elsif mongoid_forums_user
+    = link_to "Subscribe", subscribe_topic_path(@topic), :class => "btn btn-default"
+  %h1 Viewing Topic "#{@topic.emojified_name}"
+  %br
+  = paginate @posts
+  %br
+  = render @posts

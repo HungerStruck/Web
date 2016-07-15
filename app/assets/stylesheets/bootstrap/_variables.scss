@@ -386,12 +386,12 @@ $navbar-inverse-bg:                         #222 !default;
 $navbar-inverse-border:                     darken($navbar-inverse-bg, 10%) !default;
 
 // Inverted navbar links
-$navbar-inverse-link-color:                 lighten($gray-light, 15%) !default;
+$navbar-inverse-link-color:                 transparentize(#fff, 0.3) !default;
 $navbar-inverse-link-hover-color:           #fff !default;
 $navbar-inverse-link-hover-bg:              transparent !default;
-$navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color !default;
-$navbar-inverse-link-active-bg:             darken($navbar-inverse-bg, 10%) !default;
-$navbar-inverse-link-disabled-color:        #444 !default;
+$navbar-inverse-link-active-color:          #fff !default;
+$navbar-inverse-link-active-bg:             darken($navbar-default-bg, 6.5%) !default;
+$navbar-inverse-link-disabled-color:        #ccc !default;
 $navbar-inverse-link-disabled-bg:           transparent !default;
 
 // Inverted navbar brand label
@@ -847,7 +847,7 @@ $headings-small-color:        $gray-light !default;
 //** Blockquote small color
 $blockquote-small-color:      $gray-light !default;
 //** Blockquote font size
-$blockquote-font-size:        ($font-size-base * 1.25) !default;
+$blockquote-font-size:        $font-size-base !default;
 //** Blockquote border color
 $blockquote-border-color:     $gray-lighter !default;
 //** Page header border color

@@ -1,45 +1,60 @@
-%h1 Listing all forums
+- content_for :head do
+  - title 'Forums'
+.page-header
+  .container
+    .row.-no-gutter
+      .col
+        %h1 Forums
+.container
+  .row
+    .col-9
+      - @categories.each do |category|
+        %h2
+          = category.name
+        - if category.moderator?(mongoid_forums_user)
+          %b You are a moderator of this category
+        %table.table
+          %tr
+            %th
+              Name
+            %th
+              Last post
+            %th
+              Topics
+            %th
+              Posts
+            %th
+              Unread topics
+            %th
+              Views
 
-- @categories.each do |category|
-  %h2
-    = category.name
-  - if category.moderator?(mongoid_forums_user)
-    %b You are a moderator of this category
-  %table{:border => "1"}
-    %tr
-      %th
-        Name
-      %th
-        Last post
-      %th
-        Topics
-      %th
-        Posts
-      %th
-        Unread topics
-      %th
-        Views
-
-    - category.forums.asc(:position).each do |forum|
-      %tr
-        %td
-          = link_to forum.name, forum
-        %td
-          - if forum.topics.select {|topic| can?(:read, topic) }.last
-            - last_topic = forum.topics.select {|topic| can?(:read, topic) }.last
-            - last_post = last_topic.posts.last
-            = time_ago_in_words ( last_post.created_at )
-            ago on
-            = link_to last_post.topic.emojified_name, last_post.topic
-            by
-            = last_post.user.forum_display_name
-          - else
-            No posts yet
-        %td
-          = topics_count(forum) ? topics_count(forum) : "None"
-        %td
-          = posts_count(forum) ? posts_count(forum) : "None"
-        %td
-          = mongoid_forums_user ? forum.unread_topic_count(mongoid_forums_user) : ""
-        %td
-          = forum.views_count ? forum.views_count : "None"
+          - category.forums.asc(:position).each do |forum|
+            %tr
+              %td
+                = link_to forum.name, forum
+              %td
+                - if forum.topics.select {|topic| can?(:read, topic) }.last
+                  - last_topic = forum.topics.select {|topic| can?(:read, topic) }.last
+                  - last_post = last_topic.posts.last
+                  = time_ago_in_words ( last_post.created_at )
+                  ago on
+                  = link_to last_post.topic.emojified_name, last_post.topic
+                  by
+                  = last_post.user.forum_display_name
+                - else
+                  No posts yet
+              %td
+                = topics_count(forum) ? topics_count(forum) : "None"
+              %td
+                = posts_count(forum) ? posts_count(forum) : "None"
+              %td
+                = mongoid_forums_user ? forum.unread_topic_count(mongoid_forums_user) : ""
+              %td
+                = forum.views_count ? forum.views_count : "None"
+    .col-3
+      - @categories.each do |category|
+        %h2
+          = category.name
+        %ul
+        - category.forums.asc(:position).each do |forum|
+          %li= link_to forum.name, forum

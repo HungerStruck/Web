@@ -1,9 +1,8 @@
-%blockquote
-  - reply_to = MongoidForums::Post.find(post.reply_to_id)
-  = reply_to.user.forum_display_name
-  said
+- reply_to = MongoidForums::Post.find(post.reply_to_id)
+In reply to 
+= reply_to.user.forum_display_name
+%span.text-muted
   = time_ago_in_words(reply_to.created_at)
   ago
-  %br
-  >
+%blockquote
   = mongoid_forums_format(reply_to.text)
