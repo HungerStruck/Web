@@ -10,15 +10,12 @@
         .col.text-right.footer-left
           .footer-title REVISIONS
           .footer-commit
-            - if defined?(revision)
-              - if current_user
-                %code
-                  %a{href:"https://github.com/HungerStruck/Web/commit/#{revision.sha}", target: "_blank"} #{revision.sha[0..5]}
-              - else
-                %code #{revision.sha[0..5]}
-              #{revision.message}
-            - else 
-              %code{ :style => "border-color: pink; color: pink; font-weight: bold; position: fixed; left: calc(50% - 80px); top: 17px; z-index: 99999;" } NEIL FIX THIS PLEASE
+            - if current_user
+              %code
+                %a{href:"https://github.com/HungerStruck/Web/commit/#{@revision.sha}", target: "_blank"} #{@revision.sha[0..5]}
+            - else
+              %code #{@revision.sha[0..5]}
+            #{@revision.message}
         .col
           .footer-title SERVER STATUS
           .footer-status

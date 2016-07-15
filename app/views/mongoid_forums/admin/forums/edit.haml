@@ -1,5 +1,26 @@
-= simple_form_for [:admin, @forum] do |f|
-  = f.input :name
-  = f.input :category, collection: MongoidForums::Category.all
-  = f.input :position
-  = f.submit "Update Forum", :class => "btn", :disable_with => "Updating..."
+- content_for :head do
+  - title 'Admin - Manage Forums'
+.page-header
+  .container
+    .row.-no-gutter
+      .col
+        %h1 Admin - Manage Forums
+.container
+  %ul.nav.nav-tabs
+    %li
+      =link_to "Home", admin_root_path
+    %li
+      =link_to "Categories", admin_categories_path
+    %li.active
+      =link_to "Forums", admin_forums_path
+    %li
+      =link_to "User Groups", admin_groups_path
+    %li
+      =link_to "Users", admin_users_path
+
+  %h2 Edit forum
+  = simple_form_for [:admin, @forum] do |f|
+    = f.input :name
+    = f.input :category, collection: MongoidForums::Category.all
+    = f.input :position
+    = f.submit "Update Forum", :class => "btn", :disable_with => "Updating..."

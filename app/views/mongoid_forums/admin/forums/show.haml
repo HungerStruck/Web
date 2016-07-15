@@ -1,21 +1,41 @@
-%h2 Listing all moderator groups for: #{@forum.name}
-%table{:border => "1"}
-  %tr
-    %th
-      Name
+- content_for :head do
+  - title 'Admin - Manage Forums'
+.page-header
+  .container
+    .row.-no-gutter
+      .col
+        %h1 Admin - Manage Forums
+.container
+  %ul.nav.nav-tabs
+    %li
+      =link_to "Home", admin_root_path
+    %li
+      =link_to "Categories", admin_categories_path
+    %li.active
+      =link_to "Forums", admin_forums_path
+    %li
+      =link_to "User Groups", admin_groups_path
+    %li
+      =link_to "Users", admin_users_path
 
-  - @forum.moderator_groups.each do |group|
+  %h2 Listing all moderator groups for: #{@forum.name}
+  %table.table
     %tr
-      %td
-        = link_to group.name, [:admin, group]
-      %td
-        = link_to "Show", admin_group_path(group)
-      %td
-        = link_to "Edit", edit_admin_group_path(group)
-      %td
-        = button_to "Remove", admin_forum_rem_group_path(forum_id: params[:id], group: {id: group.id}), method: :post, data: { confirm: 'Are you certain you want to delete this?' }
+      %th
+        Name
 
-= form_tag admin_forum_add_group_path(@forum), :method => :post do
-  = collection_select(:group, :id, @groups, :id, :name, {:prompt => true})
-  %button
-    Add
+    - @forum.moderator_groups.each do |group|
+      %tr
+        %td
+          = link_to group.name, [:admin, group]
+        %td
+          = link_to "Show", admin_group_path(group)
+        %td
+          = link_to "Edit", edit_admin_group_path(group)
+        %td
+          = button_to "Remove", admin_forum_rem_group_path(forum_id: params[:id], group: {id: group.id}), method: :post, data: { confirm: 'Are you certain you want to delete this?' }
+
+  = form_tag admin_forum_add_group_path(@forum), :method => :post do
+    = collection_select(:group, :id, @groups, :id, :name, {:prompt => true})
+    %button
+      Add

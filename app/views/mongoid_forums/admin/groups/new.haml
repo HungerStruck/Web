@@ -1,5 +1,26 @@
-// create a new mod group OR create a new group
-= simple_form_for [:admin, @group] do |f|
-  = f.input :name
-  = f.input :moderator, as: :radio_buttons
-  = f.submit "Create Group", :class => "btn", :disable_with => "Creating..."
+- content_for :head do
+  - title 'Admin - Manage groups'
+.page-header
+  .container
+    .row.-no-gutter
+      .col
+        %h1 Admin - Manage groups
+.container
+  %ul.nav.nav-tabs
+    %li
+      =link_to "Home", admin_root_path
+    %li
+      =link_to "Categories", admin_categories_path
+    %li
+      =link_to "Forums", admin_forums_path
+    %li.active
+      =link_to "User Groups", admin_groups_path
+    %li
+      =link_to "Users", admin_users_path
+
+  %h2 Add group
+
+  = simple_form_for [:admin, @group] do |f|
+    = f.input :name
+    = f.input :moderator, as: :radio_buttons
+    = f.submit "Create Group", :class => "btn", :disable_with => "Creating..."

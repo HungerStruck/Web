@@ -1,6 +1,19 @@
-%h1 Admin Dashboard
-
-=link_to "Manage Categories", admin_categories_path
-=link_to "Manage Forums", admin_forums_path
-=link_to "Manage Groups", admin_groups_path
-=link_to "Manage Users", admin_users_path
+- content_for :head do
+  - title 'Admin - Dashboard'
+.page-header
+  .container
+    .row.-no-gutter
+      .col
+        %h1 Admin - Dashboard
+.container
+  %ul.nav.nav-tabs
+    %li.active
+      =link_to "Home", admin_root_path
+    %li
+      =link_to "Categories", admin_categories_path
+    %li
+      =link_to "Forums", admin_forums_path
+    %li
+      =link_to "User Groups", admin_groups_path
+    %li
+      =link_to "Users", admin_users_path

@@ -1,24 +1,44 @@
-%h3 Listing all admins
-%table{:border => "1"}
-  %tr
-    %th
-      Name
+- content_for :head do
+  - title 'Admin - Manage groups'
+.page-header
+  .container
+    .row.-no-gutter
+      .col
+        %h1 Admin - Manage groups
+.container
+  %ul.nav.nav-tabs
+    %li
+      =link_to "Home", admin_root_path
+    %li
+      =link_to "Categories", admin_categories_path
+    %li
+      =link_to "Forums", admin_forums_path
+    %li
+      =link_to "User Groups", admin_groups_path
+    %li.active
+      =link_to "Users", admin_users_path
 
-  - @admins.each do |admin|
+  %h2 All admins
+  %table.table
     %tr
-      %td
-        = admin.forum_display_name
-      %td
-        = button_to "Remove", admin_user_remove_admin_path("dummy", user: {id: admin.id}), method: :post, data: { confirm: 'Are you certain you want to delete this?' }
+      %th
+        Name
 
-= form_tag admin_user_add_admin_path("dummy"), :method => :post, :id => "form_add_user" do
-  %input{:id => "userinput", :list => "users", :name => "[user][id]"}/
-  %datalist#users
-    - @non_admins.each do |user|
-      %option{:id => user.id, :value => user.forum_display_name}
-  = submit_tag("Add Admin")
+    - @admins.each do |admin|
+      %tr
+        %td
+          = admin.forum_display_name
+        %td
+          = button_to "Remove", admin_user_remove_admin_path("dummy", user: {id: admin.id}), method: :post, data: { confirm: 'Are you certain you want to delete this?' }
 
-:javascript
-  $("#form_add_user").submit(function(){
-    $("#userinput").val($('#users').find('option[value="' + $('#userinput').val() + '"]').attr('id'));
-  });
+  = form_tag admin_user_add_admin_path("dummy"), :method => :post, :id => "form_add_user" do
+    %input{:id => "userinput", :list => "users", :name => "[user][id]"}/
+    %datalist#users
+      - @non_admins.each do |user|
+        %option{:id => user.id, :value => user.forum_display_name}
+    = submit_tag("Add Admin")
+
+  :javascript
+    $("#form_add_user").submit(function(){
+      $("#userinput").val($('#users').find('option[value="' + $('#userinput').val() + '"]').attr('id'));
+    });
