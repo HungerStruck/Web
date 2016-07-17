@@ -16,6 +16,7 @@
 //= require chart
 //= require bootstrap
 //= require user_tooltip
+//= require reply_to
 
 //= require peek
 //= require peek/views/rblineprof
