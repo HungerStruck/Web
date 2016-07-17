@@ -13,10 +13,10 @@ document.addEventListener("turbolinks:load", function() {
       var docViewTop = $(window).scrollTop();
       var docViewBottom = docViewTop + $(window).height();
 
-      var elemTop = $(this).parent().offset().top;
-      var elemBottom = elemTop + $(this).parent().height();
+      var quotedTop = $("#" + quoted).offset().top;
+      var quotedBottom = quotedTop + $("#" + quoted).height();
 
-      if((elemBottom <= docViewBottom) && (elemTop >= docViewTop)) {
+      if((quotedBottom <= docViewBottom) && (quotedTop >= docViewTop)) {
         setTimeout(function(){ $( ".post").css('opacity', '1').css('transform', 'scale(1)'); }, 500);
       } else {
         $('html, body').animate({
