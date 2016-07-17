@@ -20,7 +20,7 @@ document.addEventListener("turbolinks:load", function() {
         }
       });
     } else {
-      window.alert('The quoted message is on another page!')
+      $( this ).parent().find(".reply-quote").show();
     }
   });
 

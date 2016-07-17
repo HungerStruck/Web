@@ -37,4 +37,17 @@
 
 .post {
   transition: 0.5s;
+  .button_to {
+    display: inline-block;
+  }
+  .reply-quote {
+    margin-top: 10px;
+    display: none;
+  }
+  [data-reply]{
+    cursor: pointer;
+  }
+  .post-content {
+    margin-top: 10px;
+  }
 }

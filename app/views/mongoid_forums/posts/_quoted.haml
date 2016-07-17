@@ -1,9 +1,11 @@
 - reply_to = MongoidForums::Post.find(post.reply_to_id)
-.label-reply-to.label.label-default{"data-reply" => post.reply_to_id}
+.label.label-default{"data-reply" => post.reply_to_id}
   %i.fa.fa-reply
   = MongoidForums::Post.find(post.reply_to_id).user.forum_display_name
   %span.text-regular
     = time_ago_in_words(reply_to.created_at)
     ago
-/ %blockquote
-/   = mongoid_forums_format(reply_to.text)
+.reply-quote
+  .panel.panel-default
+    .panel-body
+      = mongoid_forums_format(reply_to.text)
