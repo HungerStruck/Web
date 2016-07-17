@@ -36,11 +36,12 @@
                 - if forum.topics.select {|topic| can?(:read, topic) }.last
                   - last_topic = forum.topics.select {|topic| can?(:read, topic) }.last
                   - last_post = last_topic.posts.last
-                  = time_ago_in_words ( last_post.created_at )
-                  ago on
                   = link_to last_post.topic.emojified_name, last_post.topic
-                  by
+                  %br
                   = last_post.user.forum_display_name
+                  %span.text-muted
+                    = time_ago_in_words ( last_post.created_at )
+                    ago
                 - else
                   No posts yet
               %td

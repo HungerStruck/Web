@@ -1,12 +1,21 @@
-- if @posts[0].id.to_json != post.id.to_json
+/ %code= post.public_methods
+- if @posts.first_page? == false || @posts.first_page? == true && @posts[0].id.to_json != post.id.to_json
+
   = user_tooltip_element(post.user.forum_display_name, true, false)
   %span.text-muted
     = time_ago_in_words(post.created_at)
     ago
+    - if post.updated_at != post.created_at
+      %span
+        \- edited
+        = time_ago_in_words(post.updated_at)
+        ago
+  - if post.replies?
+    %span #{post.replies.count} replies
 
-  / - if post.reply_to_id
-  /   replied to
-  /   = MongoidForums::Post.find(post.reply_to_id).user.forum_display_name
+  - if post.reply_to_id
+    replied to
+    = MongoidForums::Post.find(post.reply_to_id).user.forum_display_name
 
   = link_to 'Quote', new_topic_post_path(post.topic_id, :reply_to_id => post.id), :class => "btn btn-default btn-sm"
   - if mongoid_forums_user && post.owner_or_admin?(mongoid_forums_user)
