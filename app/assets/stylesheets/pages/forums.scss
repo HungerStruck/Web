@@ -1,0 +1,14 @@
+.topic-list {
+  .topic-list-item {
+    display: block;
+    border-radius: $border-radius-base;
+    padding: 10px;
+    margin: 0 -10px;
+    .bottom {
+      color: $text-color;
+    }
+    &:hover {
+      background: transparentize($brand-primary, 0.9);
+    }
+  }
+}
