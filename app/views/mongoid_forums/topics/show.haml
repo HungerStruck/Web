@@ -6,13 +6,16 @@
     .row.-no-gutter
       .col
         %h1
-          = @topic.emojified_name
-          %small.text-muted
-            by
-            = @topic.user.forum_display_name
+          Forums
+          %span.small
+            \/
+            = @forum.category.name
+            \/
+            = @forum.name
 .container
   .row
     .col-9
+      %h2.forum-title= @topic.emojified_name
       - if @posts.first_page? == true
         .panel.panel-default
           .panel-body

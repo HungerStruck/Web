@@ -9,88 +9,13 @@
 .container
   .row
     .col-9
-      %h2 Latest updates
+      %h2.forum-title Latest updates
       .topic-list
         - @recent.each do |topic|
-          - last_post = topic.posts.last
+          = render :partial => 'mongoid_forums/forums/topic_list_item', :locals => {:topic => topic}
 
-          = link_to topic, class: 'topic-list-item' do
-            .pull-left
-              -if topic.locked?
-                %i.fa.fa-lock
-              = topic.emojified_name
-              .bottom
-                - if topic.posts.count == 1
-                  %span.text-muted
-                    %i.fa.fa-comments-o
-                  = last_post.user.forum_display_name
-                  %span.text-muted
-                    created the topic
-                - else
-                  %span.text-muted
-                    %i.fa.fa-reply.small
-                  = last_post.user.forum_display_name
-                  %span.text-muted
-                    replied
-                %span.text-muted
-                  = time_ago_in_words ( last_post.created_at )
-                  ago
-            .pull-right.text-right
-              %i.fa.fa-comment-o
-              = topic.posts.count
-              .bottom
-                %span.text-muted
-                  =topic.forum.category.name
-                  \/ 
-                =topic.forum.name
-            .clearfix
-
-
-
-      / - @categories.each do |category|
-      /   %h2
-      /     = category.name
-      /   - if category.moderator?(mongoid_forums_user)
-      /     %b You are a moderator of this category
-      /   %table.table
-      /     %tr
-      /       %th
-      /         Name
-      /       %th
-      /         Last post
-      /       %th
-      /         Topics
-      /       %th
-      /         Posts
-      /       %th
-      /         Unread topics
-      /       %th
-      /         Views
-      /     - category.forums.asc(:position).each do |forum|
-      /       %tr
-      /         %td
-      /           = link_to forum.name, forum
-      /         %td
-      /           - if forum.topics.select {|topic| can?(:read, topic) }.last
-      /             - last_topic = forum.topics.select {|topic| can?(:read, topic) }.last
-      /             - last_post = last_topic.posts.last
-      /             = link_to last_post.topic.emojified_name, last_post.topic
-      /             %br
-      /             = last_post.user.forum_display_name
-      /             %span.text-muted
-      /               = time_ago_in_words ( last_post.created_at )
-      /               ago
-      /           - else
-      /             No posts yet
-      /         %td
-      /           = topics_count(forum) ? topics_count(forum) : "None"
-      /         %td
-      /           = posts_count(forum) ? posts_count(forum) : "None"
-      /         %td
-      /           = mongoid_forums_user ? forum.unread_topic_count(mongoid_forums_user) : ""
-      /         %td
-      /           = forum.views_count ? forum.views_count : "None"
     .col-3
+      %a.btn.btn-primary.btn-block New topic?
       - @categories.each do |category|
         %h2
           = category.name
