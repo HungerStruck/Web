@@ -38,46 +38,46 @@
                 .col-11 Username
     .col-12.col-md-6.col-lg-8
       %h2.page-header Event timeline
-      .match-timeline
-        .panel.panel-default
-          .panel-body
-            .label.label-default 08:35
-            =user_tooltip_element('Halftone', true, true)
-            killed 
-            =user_tooltip_element('Komp', true, true)
-            using a diamond sword
-
-        .panel.panel-success
-          .panel-body
-            .label.label-success 07:06
-            =user_tooltip_element('Halftone', true, true)
-            found diamonds
-
-        .panel.panel-default
-          .panel-body
-            .label.label-default 04:02
-            =user_tooltip_element('Halftone', true, true)
-            threw
-            =user_tooltip_element('Komp', true, true)
-            into a fire
-
-        .panel.panel-default
-          .panel-body
-            .label.label-default 02:01
-            =user_tooltip_element('Halftone', true, true)
-            shot
-            =user_tooltip_element('Komp', true, true)
-            using a bow
-
-        .panel.panel-warning.panel-feast
-          .panel-body
-            .label.label-warning 01:56
-            A feast has started
-
-        .panel.panel-default
-          .panel-body
-            .label.label-default 00:12
-            =user_tooltip_element('Halftone', true, true)
-            killed 
-            =user_tooltip_element('Komp', true, true)
-            using a wooden sword
+      .match-timeline#match-timeline
+        = render @events
+        /.panel.panel-default
+        /  .panel-body
+        /    .label.label-default 08:35
+        /    =user_tooltip_element('Halftone', true, true)
+        /    killed 
+        /    =user_tooltip_element('Komp', true, true)
+        /    using a diamond sword
+        /  
+        /.panel.panel-success
+        /  .panel-body
+        /    .label.label-success 07:06
+        /    =user_tooltip_element('Halftone', true, true)
+        /    found diamonds
+        /    
+        /.panel.panel-default
+        /  .panel-body
+        /    .label.label-default 04:02
+        /    =user_tooltip_element('Halftone', true, true)
+        /    threw
+        /    =user_tooltip_element('Komp', true, true)
+        /    into a fire
+        /    
+        /.panel.panel-default
+        /  .panel-body
+        /    .label.label-default 02:01
+        /    =user_tooltip_element('Halftone', true, true)
+        /    shot
+        /    =user_tooltip_element('Komp', true, true)
+        /    using a bow
+        /    
+        /.panel.panel-warning.panel-feast
+        /  .panel-body
+        /    .label.label-warning 01:56
+        /    A feast has started
+        /.panel.panel-default
+        /  .panel-body
+        /    .label.label-default 00:12
+        /    =user_tooltip_element('Halftone', true, true)
+        /    killed 
+        /    =user_tooltip_element('Komp', true, true)
+        /    using a wooden sword

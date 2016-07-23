@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount Peek::Railtie => '/peek'
   root :to => 'home#show'
+  mount ActionCable.server => '/cable'
 end

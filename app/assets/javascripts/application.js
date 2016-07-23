@@ -21,8 +21,4 @@
 //= require peek/views/rblineprof
 //= require peek/views/performance_bar
 
-document.addEventListener("turbolinks:load", function() {
-  $("#play-button").click(function() {
-    $(this).addClass("activated");
-  });
-});
+//= require_tree .
