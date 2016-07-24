@@ -9,9 +9,10 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = yield :head
-  %body
+  %body{ class: [controller_name, action_name]}
     = render 'peek/bar'
     = render 'partials/navbar'
     .main-content
       = yield
+    }
     = render partial: 'partials/footer', locals: {revision: @revision}

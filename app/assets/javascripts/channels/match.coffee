@@ -1,10 +1,13 @@
-App.match = App.cable.subscriptions.create "MatchChannel",
-  connected: ->
-    # Called when the subscription is ready for use on the server
-
-  disconnected: ->
-    # Called when the subscription has been terminated by the server
-
-  received: (data) ->
-    console.log data
-    $('#match-timeline').prepend data.event[0]
+$(document).on 'turbolinks:load', ->
+  if $('body').hasClass('matches show')
+    roomId = '5794d72ab392e86326670900'
+    App.room = App.cable.subscriptions.create({
+      channel: 'MatchChannel'
+      roomId: roomId
+    },
+      connected: ->
+      disconnected: ->
+      received: (data) ->
+        console.log data
+        $('#match-timeline').prepend data.event[0]
+    )
