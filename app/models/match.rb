@@ -1,5 +1,6 @@
 class Match
   include Mongoid::Document
+  has_many :events
 
   field :time, type: Date
   field :state, type: Symbol # either :playing or :ended

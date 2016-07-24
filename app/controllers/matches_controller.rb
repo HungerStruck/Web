@@ -6,8 +6,8 @@ class MatchesController < ApplicationController
   end
 
   def show
-    # @match = Match.find(params[:id])
-    @events = Event.all.reverse!
+    @match = Match.find(params[:id])
+    @events = @match.events
     # expires_in 2.minutes, :public => true
   end
 
