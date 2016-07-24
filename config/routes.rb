@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   mount Peek::Railtie => '/peek'
   root :to => 'home#show'
   mount ActionCable.server => '/cable'
+
+  get '/newevent/:id', to: 'matches#newevent'
 end

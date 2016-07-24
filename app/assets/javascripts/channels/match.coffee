@@ -8,14 +8,3 @@ App.match = App.cable.subscriptions.create "MatchChannel",
   received: (data) ->
     console.log data
     $('#match-timeline').prepend data.event[0]
-
-    # msg = new SpeechSynthesisUtterance();
-    # window.speechSynthesis.onvoiceschanged = ->
-    #   voices = window.speechSynthesis.getVoices();
-    #   console.log voices
-    #   msg.text = data.event[1];
-    #   speechSynthesis.speak(msg);
-    #   return
-
-  speak: (event) ->
-    @perform 'speak', event: event

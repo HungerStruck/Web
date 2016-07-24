@@ -7,8 +7,4 @@ class MatchChannel < ApplicationCable::Channel
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
-
-  def speak(data)
-    Event.create! content: data['event']
-  end
 end
