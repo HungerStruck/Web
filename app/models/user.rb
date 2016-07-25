@@ -1,5 +1,8 @@
 class User
   include Mongoid::Document
+  has_many :players
+  has_many :events
+
   devise :database_authenticatable, :registerable,
          :recoverable, :confirmable, :rememberable, :validatable
 
@@ -25,7 +28,7 @@ class User
 
   field :kills,                 type: Integer, default: 0
   field :deaths,                type: Integer, default: 0
-  field :background_image,      type: Integer, default: 0
+  field :background_image,      type: String, default: "default"
 
   def forum_display_name
     email

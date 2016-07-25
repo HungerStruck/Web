@@ -12,7 +12,7 @@ class MatchesController < ApplicationController
   end
 
   def newevent
-    Event.create! content: Time.now.to_s, match: Match.find(params[:id])
+    Event.create! time: Time.now.to_s, type: 'death', match: Match.find(params[:id]), user: User.find('578bd194b392e821f6cc859c'), killer: User.find('576fc3d8b392e86347bec086')
     render text: Time.now.to_s
   end
 

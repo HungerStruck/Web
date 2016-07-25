@@ -9,5 +9,5 @@ $(document).on 'turbolinks:load', ->
       disconnected: ->
       received: (data) ->
         console.log data
-        $('#match-timeline').prepend data.event[0]
+        $('#match-timeline').prepend data.event
     )

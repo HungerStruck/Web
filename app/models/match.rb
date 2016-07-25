@@ -1,9 +1,10 @@
 class Match
   include Mongoid::Document
   has_many :events
+  belongs_to :map
 
-  field :time, type: Date
-  field :state, type: Symbol # either :playing or :ended
+  field :started_at, type: Date
+  field :ended_at, type: Date
 
   field :map,  type: String # will be map object eventually
   field :server, type: String # e.g hs7

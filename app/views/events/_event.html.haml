@@ -1,4 +1,10 @@
 .panel.panel-default
   .panel-body
     .label.label-default 08:35
-    = event.content
+    - if event.type == 'death' && event.killer
+      = event.user.username
+      was murdered by
+      = event.killer.username
+    - elsif event.type == 'death'
+      = event.user.username
+      died

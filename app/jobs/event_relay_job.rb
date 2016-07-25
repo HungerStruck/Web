@@ -7,7 +7,7 @@ class EventRelayJob < ApplicationJob
   # end
 
   def perform(event)
-    ActionCable.server.broadcast 'match_channel_' + event.match_id, event: [render_event(event), event.content]
+    ActionCable.server.broadcast 'match_channel_' + event.match_id, event: render_event(event)
   end
 
   private
