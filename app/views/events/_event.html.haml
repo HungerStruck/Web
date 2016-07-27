@@ -2,9 +2,9 @@
   .panel-body
     .label.label-default 08:35
     - if event.type == 'death' && event.killer
-      = event.user.username
+      = user_tooltip_element(event.user.username, true, true)
       was murdered by
-      = event.killer.username
+      = user_tooltip_element(event.killer.username, true, true)
     - elsif event.type == 'death'
-      = event.user.username
+      = user_tooltip_element(event.user.username, true, true)
       died

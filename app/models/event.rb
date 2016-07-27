@@ -8,9 +8,5 @@ class Event
   field :time, type: Date
   field :type, type: String
 
-  field :type, type: String
-  field :type, type: String
-
-
   after_create { EventRelayJob.perform_later(self) }
 end
