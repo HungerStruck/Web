@@ -1,6 +1,5 @@
 class User
   include Mongoid::Document
-  has_many :players
   has_many :events
 
   devise :database_authenticatable, :registerable,

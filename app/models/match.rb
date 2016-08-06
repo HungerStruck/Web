@@ -1,6 +1,7 @@
 class Match
   include Mongoid::Document
   has_many :events
+  has_many :users
   belongs_to :map
 
   field :started_at, type: Date
