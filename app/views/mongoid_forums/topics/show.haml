@@ -1,5 +1,13 @@
 - content_for :head do
   - title @topic.emojified_name + ' - ' + @forum.name + ' - Forums'
+  %meta{ property: 'og:type', content: 'article'}
+  %meta{ property: 'og:url', content: request.original_url}
+  %meta{ property: 'og:site_name', content: 'HungerStruck Forums - ' + @forum.name}
+  %meta{ property: 'og:title', content: @topic.name}
+  %meta{ property: 'og:description', content: truncate(@posts[0].text, length: 200)}
+  %meta{ property: 'og:author', content: @topic.user.forum_display_name}
+  %meta{ property: 'og:section', content: @forum.name}
+  %meta{ property: 'og:image', content: user_avatar_url(@topic.user.forum_display_name, 100)}
 
 .page-header
   .container
@@ -33,18 +41,18 @@
       / User who posted
       - if @posts.first_page? == true
         .topic-creator.panel.panel-default
-          .panel-body.text-center{style: 'background-image: url("/assets/backgrounds/' + @posts[0].user.background_image.to_s + '.jpg")'}
-            =user_avatar(@posts[0].user.forum_display_name, 100)
-            %h3= @posts[0].user.forum_display_name
+          .panel-body.text-center{style: 'background-image: url("/assets/backgrounds/' + @topic.user.background_image.to_s + '.jpg")'}
+            =user_avatar(@topic.user.forum_display_name, 100)
+            %h3= @topic.user.forum_display_name
           .panel-footer.topic-creator-footer
             .row.-no-gutter-vert
               .col
                 .num
-                  = @posts[0].user.kills
+                  = @topic.user.kills
                 Kills
               .col
                 .num
-                  = @posts[0].user.deaths
+                  = @topic.user.deaths
                 Deaths
               .col
                 .num

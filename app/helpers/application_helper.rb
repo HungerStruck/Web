@@ -6,7 +6,7 @@ module ApplicationHelper
   def user_tooltip_element(username, link, strong)
     user = User.where(username: username)
 
-    start = ""
+    start = ''
     if strong == true && link == false
       start = '%strong{ '
     elsif strong == true && link == true
@@ -18,14 +18,11 @@ module ApplicationHelper
     end
 
     if user.length > 0
-      userData = user.first
-      kills = userData.kills
-      deaths = userData.deaths
+      user_data = user.first
+      kills = user_data.kills
+      deaths = user_data.deaths
       rank = '??'
-      background = userData.background_image
-
-      snippet = ""
-      
+      background = user_data.background_image
       haml = start + '"data-toggle" => "popover", "title" => "' + username + '", "data-placement" => "top", "data-content" => "player_tooltip", "data-kills" => "' + kills.to_s + '", "data-deaths" => "' + deaths.to_s + '", "data-rank" => "' + rank.to_s + '", "data-bg" => "' + background.to_s + '"} ' + username
     else
       haml = start + '} ' + username
@@ -38,6 +35,10 @@ module ApplicationHelper
     haml = '%img.avatar{src: "https://mcapi.ca/avatar/2d/' + username + '/' + size.to_s + '"}'
     snippet = Haml::Engine.new(haml)
     return snippet.render
+  end
+
+  def user_avatar_url(username, size)
+    return 'https://mcapi.ca/avatar/2d/' + username + '/' + size.to_s
   end
 
   def title(page_title)
