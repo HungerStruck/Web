@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'info#index'
 
-  resources :matches, only: [:index, :show]
+  resources :games, only: [:index, :show]
   resources :revisions, only: [:index]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   root :to => 'home#show'
   mount ActionCable.server => '/cable'
 
-  get '/newevent/:id', to: 'matches#newevent'
+  get '/newevent/:id', to: 'games#newevent'
 end

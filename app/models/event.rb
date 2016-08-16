@@ -1,7 +1,7 @@
 class Event
   include Mongoid::Document
   include GlobalID::Identification
-  belongs_to :match
+  belongs_to :game
   belongs_to :user
   belongs_to :killer, :class_name => 'User'
   

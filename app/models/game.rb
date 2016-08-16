@@ -1,4 +1,4 @@
-class Match
+class Game
   include Mongoid::Document
   has_many :events
   has_many :users

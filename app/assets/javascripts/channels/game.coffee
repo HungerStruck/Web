@@ -1,13 +1,13 @@
 $(document).on 'turbolinks:load', ->
-  if $('body').hasClass('matches show')
-    roomId = '5794d72ab392e86326670900'
+  if $('body').hasClass('games show')
+    roomId = gameId
     App.room = App.cable.subscriptions.create({
-      channel: 'MatchChannel'
+      channel: 'GameChannel'
       roomId: roomId
     },
       connected: ->
       disconnected: ->
       received: (data) ->
         console.log data
-        $('#match-timeline').prepend data.event
+        $('#game-timeline').prepend data.event
     )

@@ -1,100 +1,100 @@
 - content_for :head do
-  - title 'Matches'
+  - title 'Games'
 .page-header
   .container
     .row.-no-gutter
       .col
-        %h1 Matches
+        %h1 Games
 .container
   .row-4
     .col
-      %a{href: '/matches/1'}
-        .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
-          .match-map UK
+      %a{href: '/games/1'}
+        .list-game-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+          .game-map UK
           .time
             %i.fa.fa-clock-o
             = rand(3..30).to_s + ':' + rand(10..59).to_s
     .col
-      %a{href: '/matches/2'}
-        .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
-          .match-map Greenland
+      %a{href: '/games/2'}
+        .list-game-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+          .game-map Greenland
           .time
             %i.fa.fa-clock-o
             = rand(3..30).to_s + ':' + rand(10..59).to_s
     .col
-      %a{href: '/matches/3'}
-        .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
-          .match-map Biodomes
+      %a{href: '/games/3'}
+        .list-game-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+          .game-map Biodomes
           .time
             %i.fa.fa-check-circle-o
-            Match Finished
+            Game Finished
   .row
     .col-8
-      %h2.page-header Past matches
-      %a.panel.panel-default{href: '/matches/1'}
+      %h2.page-header Past games
+      %a.panel.panel-default{href: '/games/1'}
         .panel-body
           =user_tooltip_element('Halftone', false, true)
           won on Biodomes
           .pull-right
             .label.label-default 08:35
           .small #{Time.now.strftime("%B %d, %Y at %H:%M")}, 24 players
-      %a.panel.panel-default{href: '/matches/1'}
+      %a.panel.panel-default{href: '/games/1'}
         .panel-body
           =user_tooltip_element('Halftone', false, true)
           won on Biodomes
           .pull-right
             .label.label-default 08:35
           .small #{Time.now.strftime("%B %d, %Y at %H:%M")}, 24 players
-      %a.panel.panel-default{href: '/matches/1'}
+      %a.panel.panel-default{href: '/games/1'}
         .panel-body
           =user_tooltip_element('Halftone', false, true)
           won on Biodomes
           .pull-right
             .label.label-default 08:35
           .small #{Time.now.strftime("%B %d, %Y at %H:%M")}, 24 players
-      %a.panel.panel-default{href: '/matches/1'}
+      %a.panel.panel-default{href: '/games/1'}
         .panel-body
           =user_tooltip_element('Halftone', false, true)
           won on Biodomes
           .pull-right
             .label.label-default 08:35
           .small #{Time.now.strftime("%B %d, %Y at %H:%M")}, 24 players
-      %a.panel.panel-default{href: '/matches/1'}
+      %a.panel.panel-default{href: '/games/1'}
         .panel-body
           =user_tooltip_element('Halftone', false, true)
           won on Biodomes
           .pull-right
             .label.label-default 08:35
           .small #{Time.now.strftime("%B %d, %Y at %H:%M")}, 24 players
-      %a.panel.panel-default{href: '/matches/1'}
+      %a.panel.panel-default{href: '/games/1'}
         .panel-body
           =user_tooltip_element('Halftone', false, true)
           won on Biodomes
           .pull-right
             .label.label-default 08:35
           .small #{Time.now.strftime("%B %d, %Y at %H:%M")}, 24 players
-      %a.panel.panel-default{href: '/matches/1'}
+      %a.panel.panel-default{href: '/games/1'}
         .panel-body
           =user_tooltip_element('Halftone', false, true)
           won on Biodomes
           .pull-right
             .label.label-default 08:35
           .small #{Time.now.strftime("%B %d, %Y at %H:%M")}, 24 players
-      %a.panel.panel-default{href: '/matches/1'}
+      %a.panel.panel-default{href: '/games/1'}
         .panel-body
           =user_tooltip_element('Halftone', false, true)
           won on Biodomes
           .pull-right
             .label.label-default 08:35
           .small #{Time.now.strftime("%B %d, %Y at %H:%M")}, 24 players
-      %a.panel.panel-default{href: '/matches/1'}
+      %a.panel.panel-default{href: '/games/1'}
         .panel-body
           =user_tooltip_element('Halftone', false, true)
           won on Biodomes
           .pull-right
             .label.label-default 08:35
           .small #{Time.now.strftime("%B %d, %Y at %H:%M")}, 24 players
-      %a.panel.panel-default{href: '/matches/1'}
+      %a.panel.panel-default{href: '/games/1'}
         .panel-body
           =user_tooltip_element('Halftone', false, true)
           won on Biodomes
@@ -105,24 +105,24 @@
         %nav
           %ul.pagination
             %li
-              %a{href: '/matches/?page=1'}
+              %a{href: '/games/?page=1'}
                 %i.fa.fa-chevron-left
             %li
-              %a{href: '/matches/?page=1'} 1
+              %a{href: '/games/?page=1'} 1
             %li
-              %a{href: '/matches/?page=2'} 2
+              %a{href: '/games/?page=2'} 2
             %li
-              %a{href: '/matches/?page=3'} 3
+              %a{href: '/games/?page=3'} 3
             %li
-              %a{href: '/matches/?page=4'} 4
+              %a{href: '/games/?page=4'} 4
             %li
-              %a{href: '/matches/?page=5'} 5
+              %a{href: '/games/?page=5'} 5
             %li
-              %a{href: '/matches/?page=6'} 6
+              %a{href: '/games/?page=6'} 6
             %li
-              %a{href: '/matches/?page=7'} 7
+              %a{href: '/games/?page=7'} 7
             %li
-              %a{href: '/matches/?page=3'}
+              %a{href: '/games/?page=3'}
                 %i.fa.fa-chevron-right
     .col-4
       %h2.page-header Map rotation

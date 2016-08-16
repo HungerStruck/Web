@@ -1,16 +1,16 @@
-matches = 5
+games = 5
 
-matches.times do |i|
-  matches_left = matches - i
-  match = Match.new(
+games.times do |i|
+  games_left = games - i
+  game = Game.new(
     # users: User.all,
-    started_at: (matches_left*10 + 9).minutes.ago,
-    ended_at: (matches_left*10).minutes.ago,
+    started_at: (games_left*10 + 9).minutes.ago,
+    ended_at: (games_left*10).minutes.ago,
     map: 'Biodomes',
     server: 'HS1'
   )
-  match.save
+  game.save
   20.times do |i|
-    match.events.create(time: Time.now.to_s, type: 'death', user: User.first, killer: User.last)
+    game.events.create(time: Time.now.to_s, type: 'death', user: User.first, killer: User.last)
   end
 end

@@ -1,20 +1,23 @@
 - content_for :head do
   - title 'Biodomes on May 24th, 2016 at 15:27'
-  = javascript_include_tag "match_report"
+  = javascript_include_tag "game_report"
+
+  = javascript_tag do
+    window.gameId = '#{@game.id}';
 
 .mega-header{style: "background-image: url(#{image_url('home-bg.jpg')});"}
   .page-header
     .container
       .row.-no-gutter
         .col
-          %h1 Match Report
-  .match-report-header
+          %h1 Game Report
+  .game-report-header
     .container
       .row
-        .col-8.match-winner
-          .match-place FIRST PLACE
+        .col-8.game-winner
+          .game-place FIRST PLACE
           =user_avatar('Halftone', 150)
-          .match-winner-info
+          .game-winner-info
             %h2
               Halftone
             .row
@@ -28,17 +31,17 @@
                 .stat-num 284
                 .stat-desc Blocks broken
         .col-4
-          .match-place SECOND PLACE
+          .game-place SECOND PLACE
           %h2
             =user_avatar('Komp', 50)
             Komp
-          .match-place THIRD PLACE
+          .game-place THIRD PLACE
           %h2
             =user_avatar('Dickhead', 50)
             Dickhead
 
 .container
-  .row.match-specifics
+  .row.game-specifics
     .col
       %strong.text-uppercase Most Kills
       %h3= user_tooltip_element('Halftone', true, false)
@@ -65,7 +68,7 @@
                 .col-11 Username
     .col-12.col-md-6.col-lg-8
       %h2.page-header Event timeline
-      .match-timeline#match-timeline
+      .game-timeline#game-timeline
         = render @events
         /.panel.panel-default
         /  .panel-body

@@ -1,5 +1,5 @@
-// Matches
-.list-match-playing {
+// Games
+.list-game-playing {
   padding: 50px 0;
   text-align: center;
   background-size: cover;
@@ -7,7 +7,7 @@
   color: #fff;
   transition: 0.5s;
   border-radius: $border-radius-base;
-  .match-map {
+  .game-map {
     font-size: $font-size-h2;
     display: inline-block;
     margin: 10px 0;
@@ -21,8 +21,8 @@
 
 
 
-// Match Report
-.match-report-header {
+// Game Report
+.game-report-header {
   padding: 100px 0;
   // text-align: center;
   color: #fff;
@@ -35,20 +35,20 @@
   }
 }
 
-.match-place {
+.game-place {
   font-weight: bold;
   margin-bottom: -10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.match-winner {
-  .match-place {
+.game-winner {
+  .game-place {
     margin-bottom: 22px;
   }
   .avatar {
     float: left;
   }
-  .match-winner-info {
+  .game-winner-info {
     float: right;
     padding-left: 20px;
     width: calc(100% - 150px);
@@ -71,14 +71,14 @@
   }
 }
 
-.match-specifics {
+.game-specifics {
   h3 {
     margin-top: 10px;
     margin-bottom: 0;
   }
 }
 
-.match-timeline {
+.game-timeline {
   .panel {
     .label {
       margin-right: 10px;
