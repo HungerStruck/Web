@@ -153,16 +153,18 @@
     font-size: $font-size-h3;
   }
   .popover-footer {
-    border-top: 1px solid $popover-border-color;
     margin-top: 10px;
-    background: $gray-lighter;
+    color: #fff;
+    background: transparentize($gray-dark, 0.3);
+    padding-bottom: 5px;
     .num {
       font-size: 2em;
+      font-weight: 300;
     }
     .col {
-      padding: 10px 0;
+      padding: 5px 0;
       &:not(:last-child) {
-        border-right: 1px solid transparentize($popover-border-color, 0.15);
+        border-right: 1px solid $gray-dark;
       }
     }
   }

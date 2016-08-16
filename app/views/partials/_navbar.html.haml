@@ -11,7 +11,7 @@
       %li{class: active_controller('matches')}
         = link_to "Matches", main_app.matches_path
       - if !user_signed_in?
-        %li.navbar-divider
+        -# %li.navbar-divider
         %li
           = link_to "Log in", main_app.new_user_session_path
         %li

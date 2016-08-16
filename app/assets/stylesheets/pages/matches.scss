@@ -22,14 +22,59 @@
 
 
 // Match Report
-.jumbotron-match-report {
+.match-report-header {
   padding: 100px 0;
-  text-align: center;
-  background-size: cover;
-  background: center;
+  // text-align: center;
   color: #fff;
+  margin-bottom: 40px;
+  small {
+    color: inherit;
+  }
   .avatar {
     box-shadow: 0 0px 20px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.match-place {
+  font-weight: bold;
+  margin-bottom: -10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.match-winner {
+  .match-place {
+    margin-bottom: 22px;
+  }
+  .avatar {
+    float: left;
+  }
+  .match-winner-info {
+    float: right;
+    padding-left: 20px;
+    width: calc(100% - 150px);
+    h2 {
+      font-size: 48px;
+      margin-top: 10px;
+      padding-bottom: 11px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .stat-num {
+      font-size: 32px;
+      font-weight: 300;
+      line-height: 1;
+    }
+    .stat-desc {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+}
+
+.match-specifics {
+  h3 {
+    margin-top: 10px;
+    margin-bottom: 0;
   }
 }
 
@@ -47,5 +92,17 @@
     background-repeat: no-repeat;
     background-size: 50px;
     background-position: right center;
+  }
+}
+
+.mega-header {
+  background-size: cover;
+  background: center;
+  .page-header {
+    border: none;
+    background-color: transparentize($gray-dark, 0.3);
+    color: #fff;
+    margin-top: 0;
+    padding-top: 22px;
   }
 }
