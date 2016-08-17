@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.all
+    @finished_games = Game.all
     expires_in 2.minutes, :public => true
   end
 

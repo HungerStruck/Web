@@ -26,8 +26,6 @@ class Player
   field :username,  type: String
   field :uuid,      type: String
 
-  field :kills,                 type: Integer, default: 0
-  field :deaths,                type: Integer, default: 0
   field :background_image,      type: String, default: "default"
 
   def forum_display_name
