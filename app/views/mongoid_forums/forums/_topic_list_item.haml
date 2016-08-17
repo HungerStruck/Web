@@ -1,0 +1,32 @@
+- last_post = topic.posts.last
+
+= link_to topic, class: 'topic-list-item' do
+  .pull-left
+    -if topic.locked?
+      %i.fa.fa-lock
+    = topic.emojified_name
+    .bottom
+      - if topic.posts.count == 1
+        %span.text-muted
+          %i.fa.fa-comments-o
+        = last_post.user.forum_display_name
+        %span.text-muted
+          created the topic
+      - else
+        %span.text-muted
+          %i.fa.fa-reply.small
+        = last_post.user.forum_display_name
+        %span.text-muted
+          replied
+      %span.text-muted
+        = time_ago_in_words ( last_post.created_at )
+        ago
+  .pull-right.text-right
+    %i.fa.fa-comment-o
+    = topic.posts.count
+    .bottom
+      %span.text-muted
+        =topic.forum.category.name
+        \/ 
+      =topic.forum.name
+  .clearfix

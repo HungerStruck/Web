@@ -1,31 +1,91 @@
 - content_for :head do
-  - title @forum.name + ' - Forums'
-
-- if mongoid_forums_admin?
-  %nav.navbar.navbar-inverse.navbar-static-top
-    .container
-      %ul.nav.navbar-nav.navbar-right
-        %li
-          = link_to t("mongoid_forums.topics.actions.hide.#{@topic.hidden}"), toggle_hide_admin_topic_path(@forum, @topic)
-        %li
-          = link_to t("mongoid_forums.topics.actions.lock.#{@topic.locked}"), toggle_lock_admin_topic_path(@forum, @topic)
-        %li
-          = link_to t("mongoid_forums.topics.actions.pin.#{@topic.pinned}"), toggle_pin_admin_topic_path(@forum, @topic)
+  - title @topic.emojified_name + ' - ' + @forum.name + ' - Forums'
+  %meta{ property: 'og:type', content: 'article'}
+  %meta{ property: 'og:url', content: request.original_url}
+  %meta{ property: 'og:site_name', content: 'HungerStruck Forums - ' + @forum.name}
+  %meta{ property: 'og:title', content: @topic.name}
+  %meta{ property: 'og:description', content: truncate(@posts[0].text, length: 200)}
+  %meta{ property: 'og:author', content: @topic.user.forum_display_name}
+  %meta{ property: 'og:section', content: @forum.name}
+  %meta{ property: 'og:image', content: user_avatar_url(@topic.user.forum_display_name, 100)}
 
 .page-header
   .container
     .row.-no-gutter
       .col
-        %h1= @forum.name
+        %h1
+          Forums
+          %span.small
+            \/
+            = @forum.category.name
+            \/
+            = @forum.name
 .container
-  - if @topic.can_be_replied_to? && can?(:reply, @topic)
-    = link_to "Reply to topic", new_topic_post_path(@topic), :class => "btn btn-default"
-  - if mongoid_forums_user && @topic.subscriber?(mongoid_forums_user.id)
-    = link_to "Unsubscribe", unsubscribe_topic_path(@topic), :class => "btn btn-default"
-  -elsif mongoid_forums_user
-    = link_to "Subscribe", subscribe_topic_path(@topic), :class => "btn btn-default"
-  %h1 Viewing Topic "#{@topic.emojified_name}"
-  %br
-  = paginate @posts
-  %br
-  = render @posts
+  .row
+    .col-9
+      %h2.forum-title= @topic.emojified_name
+      - if @posts.first_page? == true
+        .panel.panel-default
+          .panel-body
+            .bigger-content
+              = mongoid_forums_format(@posts[0].text)
+      %div
+        = paginate @posts, :theme => 'twitter-bootstrap-3'
+
+      = render @posts, :locals => {:posts => @posts}
+
+      %div
+        = paginate @posts, :theme => 'twitter-bootstrap-3'
+
+    .col-3
+      / User who posted
+      - if @posts.first_page? == true
+        .topic-creator.panel.panel-default
+          .panel-body.text-center{style: 'background-image: url("/assets/backgrounds/' + @topic.user.background_image.to_s + '.jpg")'}
+            =player_avatar(@topic.user.forum_display_name, 100)
+            %h3= @topic.user.forum_display_name
+          .panel-footer.topic-creator-footer
+            .row.-no-gutter-vert
+              .col
+                .num
+                  = @topic.user.kills
+                Kills
+              .col
+                .num
+                  = @topic.user.deaths
+                Deaths
+              .col
+                .num
+                  ??
+                Level
+        %hr
+      / Buttons
+      - if @topic.can_be_replied_to? && can?(:reply, @topic)
+        = link_to "Reply to topic", new_topic_post_path(@topic), :class => "btn btn-primary btn-block"
+      - if mongoid_forums_user && @topic.subscriber?(mongoid_forums_user.id)
+        = link_to "Unsubscribe", unsubscribe_topic_path(@topic), :class => "btn btn-default btn-block"
+      -elsif mongoid_forums_user
+        = link_to "Subscribe", subscribe_topic_path(@topic), :class => "btn btn-default btn-block"
+      - if mongoid_forums_admin?
+        %hr
+        = link_to t("mongoid_forums.topics.actions.hide.#{@topic.hidden}"), toggle_hide_admin_topic_path(@forum, @topic), class: 'btn btn-default btn-block'
+        = link_to t("mongoid_forums.topics.actions.lock.#{@topic.locked}"), toggle_lock_admin_topic_path(@forum, @topic), class: 'btn btn-default btn-block'
+        = link_to t("mongoid_forums.topics.actions.pin.#{@topic.pinned}"), toggle_pin_admin_topic_path(@forum, @topic), class: 'btn btn-default btn-block'
+      %hr
+      / Timestamps
+      %p.text-muted.text-right
+        Created
+        = time_ago_in_words(@posts[0].created_at)
+        ago
+        - if @posts[0].updated_at != @posts[0].created_at
+          %span
+            \- updated
+            = time_ago_in_words(@posts[0].updated_at)
+            ago
+      %hr
+      - @categories.each do |category|
+        %h2
+          = category.name
+        %ul
+        - category.forums.asc(:position).each do |forum|
+          %li= link_to forum.name, forum

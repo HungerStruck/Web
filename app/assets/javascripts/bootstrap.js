@@ -1832,7 +1832,7 @@ if (typeof jQuery === 'undefined') {
       content += '<div class="row -no-gutter-vert popover-footer">';
       content += '<div class="col"><div class="num">' + playerKills + '</div>Kills</div>';
       content += '<div class="col"><div class="num">' + playerDeaths + '</div>Deaths</div>';
-      content += '<div class="col"><div class="num">' + playerRank + '</div>Rank</div>';
+      content += '<div class="col"><div class="num">' + playerRank + '</div>Level</div>';
       content += '</div>';
       title = ''
     }
