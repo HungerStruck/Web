@@ -19,8 +19,8 @@ module ApplicationHelper
 
     if player.length > 0
       player_data = player.first
-      kills = player_data.events.count
-      deaths = Event.where(killer: player_data).count
+      kills = Event.where(killer: player_data).count
+      deaths = player_data.events.count
       rank = '??'
       background = player_data.background_image
 
