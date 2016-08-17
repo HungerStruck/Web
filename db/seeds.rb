@@ -3,7 +3,7 @@ games = 5
 games.times do |i|
   games_left = games - i
   game = Game.new(
-    # users: Player.all,
+    players: Player.all,
     started_at: (games_left*10 + 9).minutes.ago,
     ended_at: (games_left*10).minutes.ago,
     map: 'Biodomes',

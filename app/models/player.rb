@@ -1,6 +1,7 @@
 class Player
   include Mongoid::Document
   has_many :events
+  has_and_belongs_to_many :games
 
   devise :database_authenticatable, :registerable,
          :recoverable, :confirmable, :rememberable, :validatable
