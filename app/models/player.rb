@@ -1,4 +1,4 @@
-class User
+class Player
   include Mongoid::Document
   has_many :events
 

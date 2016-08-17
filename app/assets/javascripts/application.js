@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require chart
 //= require bootstrap
-//= require user_tooltip
+//= require player_tooltip
 
 //= require peek
 //= require peek/views/rblineprof

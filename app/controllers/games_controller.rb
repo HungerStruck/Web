@@ -12,7 +12,7 @@ class GamesController < ApplicationController
   end
 
   def newevent
-    Event.create! time: Time.now.to_s, type: 'death', game: Game.find(params[:id]), user: User.find('578bd194b392e821f6cc859c'), killer: User.find('576fc3d8b392e86347bec086')
+    Event.create! time: Time.now.to_s, type: 'death', game: Game.find(params[:id]), player: Player.find('578bd194b392e821f6cc859c'), killer: Player.find('576fc3d8b392e86347bec086')
     render text: Time.now.to_s
   end
 

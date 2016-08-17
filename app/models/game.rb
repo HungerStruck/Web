@@ -1,7 +1,7 @@
 class Game
   include Mongoid::Document
   has_many :events
-  has_many :users
+  has_many :players
 
   field :started_at, type: DateTime
   field :ended_at, type: DateTime

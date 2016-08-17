@@ -16,7 +16,7 @@
       .row
         .col-8.game-winner
           .game-place FIRST PLACE
-          =user_avatar('Halftone', 150)
+          =player_avatar('Halftone', 150)
           .game-winner-info
             %h2
               Halftone
@@ -33,27 +33,27 @@
         .col-4
           .game-place SECOND PLACE
           %h2
-            =user_avatar('Komp', 50)
+            =player_avatar('Komp', 50)
             Komp
           .game-place THIRD PLACE
           %h2
-            =user_avatar('Dickhead', 50)
+            =player_avatar('Dickhead', 50)
             Dickhead
 
 .container
   .row.game-specifics
     .col
       %strong.text-uppercase Most Kills
-      %h3= user_tooltip_element('Halftone', true, false)
+      %h3= player_tooltip_element('Halftone', true, false)
     .col
       %strong.text-uppercase Most blocks broken
-      %h3= user_tooltip_element('Halftone', true, false)
+      %h3= player_tooltip_element('Halftone', true, false)
     .col
       %strong.text-uppercase Longest killstreak
-      %h3= user_tooltip_element('Halftone', true, false)
+      %h3= player_tooltip_element('Halftone', true, false)
     .col
       %strong.text-uppercase Shortest Time Alive
-      %h3= user_tooltip_element('Komp', true, false)
+      %h3= player_tooltip_element('Komp', true, false)
   %hr
   .row
     .col-12.col-md-6.col-lg-4
@@ -65,7 +65,7 @@
               %span.badge= (29 - i).to_s + ":" + rand(10..59).to_s
               .row.-no-gutter
                 .col-1= i + 1
-                .col-11 Username
+                .col-11 Playername
     .col-12.col-md-6.col-lg-8
       %h2.page-header Event timeline
       .game-timeline#game-timeline
@@ -73,31 +73,31 @@
         /.panel.panel-default
         /  .panel-body
         /    .label.label-default 08:35
-        /    =user_tooltip_element('Halftone', true, true)
+        /    =player_tooltip_element('Halftone', true, true)
         /    killed 
-        /    =user_tooltip_element('Komp', true, true)
+        /    =player_tooltip_element('Komp', true, true)
         /    using a diamond sword
         /  
         /.panel.panel-success
         /  .panel-body
         /    .label.label-success 07:06
-        /    =user_tooltip_element('Halftone', true, true)
+        /    =player_tooltip_element('Halftone', true, true)
         /    found diamonds
         /    
         /.panel.panel-default
         /  .panel-body
         /    .label.label-default 04:02
-        /    =user_tooltip_element('Halftone', true, true)
+        /    =player_tooltip_element('Halftone', true, true)
         /    threw
-        /    =user_tooltip_element('Komp', true, true)
+        /    =player_tooltip_element('Komp', true, true)
         /    into a fire
         /    
         /.panel.panel-default
         /  .panel-body
         /    .label.label-default 02:01
-        /    =user_tooltip_element('Halftone', true, true)
+        /    =player_tooltip_element('Halftone', true, true)
         /    shot
-        /    =user_tooltip_element('Komp', true, true)
+        /    =player_tooltip_element('Komp', true, true)
         /    using a bow
         /    
         /.panel.panel-warning.panel-feast
@@ -107,7 +107,7 @@
         /.panel.panel-default
         /  .panel-body
         /    .label.label-default 00:12
-        /    =user_tooltip_element('Halftone', true, true)
+        /    =player_tooltip_element('Halftone', true, true)
         /    killed 
-        /    =user_tooltip_element('Komp', true, true)
+        /    =player_tooltip_element('Komp', true, true)
         /    using a wooden sword

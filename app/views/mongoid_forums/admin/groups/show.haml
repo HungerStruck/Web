@@ -14,9 +14,9 @@
     %li
       =link_to "Forums", admin_forums_path
     %li.active
-      =link_to "User Groups", admin_groups_path
+      =link_to "Player Groups", admin_groups_path
     %li
-      =link_to "Users", admin_users_path
+      =link_to "Players", admin_users_path
 
   %h2
     = @group.name
@@ -38,7 +38,7 @@
     %datalist#users
       - @users.each do |user|
         %option{:id => user.id, :value => user.forum_display_name}
-    = submit_tag("Add User")
+    = submit_tag("Add Player")
 
   :javascript
     $("#form_add_user").submit(function(){

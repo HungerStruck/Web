@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :players
   mount MongoidForums::Engine, :at => "/forums"
-  devise_for :users
   root 'info#index'
 
   resources :games, only: [:index, :show]
