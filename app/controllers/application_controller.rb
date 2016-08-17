@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   def mongoid_forums_user
-    current_user
+    current_player
   end
   helper_method :mongoid_forums_user
   protect_from_forgery with: :exception
@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   # Make this work before putting the website online
   # def peek_enabled?
-  #   current_user.admin?
+  #   current_player.admin?
   # end
 
   private

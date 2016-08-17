@@ -1,16 +1,16 @@
 %footer
-  - if !current_user
+  - if !current_player
     .footer-signup
       .container.text-center
         Join the #{render 'partials/name'} community
-        = link_to "Sign up now", main_app.new_user_registration_path, class: "btn btn-white"
+        = link_to "Sign up now", main_app.new_player_registration_path, class: "btn btn-white"
   .footer-top{:data => {'turbolinks-permanent' => true}}
     .container
       .row-6.-no-gutter-vert
         .col.text-right.footer-left
           .footer-title REVISIONS
           .footer-commit
-            - if current_user
+            - if current_player
               %code
                 %a{href:"https://github.com/HungerStruck/Web/commit/#{@revision.sha}", target: "_blank"} #{@revision.sha[0..5]}
             - else
@@ -31,7 +31,7 @@
               %li
                 %a{:href => "https://discord.gg/dRevUct"} Discord
               %li
-                = link_to "Matches", main_app.matches_path
+                = link_to "Games", main_app.games_path
               %li
                 %a{:href => "#"} Maps
           .col

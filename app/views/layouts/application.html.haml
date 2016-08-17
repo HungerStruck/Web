@@ -4,12 +4,13 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title= yield :title
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
+    = action_cable_meta_tag
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = yield :head
-  %body
+  %body{ class: [controller_name, action_name]}
     = render 'peek/bar'
     = render 'partials/navbar'
     .main-content

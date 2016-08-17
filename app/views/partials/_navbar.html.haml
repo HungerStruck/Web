@@ -8,14 +8,14 @@
     %ul.nav.navbar-nav.navbar-right
       %li{class: active_controller('mongoid_forums')}
         = link_to "Forums", mongoid_forums.root_path
-      %li{class: active_controller('matches')}
-        = link_to "Matches", main_app.matches_path
-      - if !user_signed_in?
-        %li.navbar-divider
+      %li{class: active_controller('games')}
+        = link_to "Games", main_app.games_path
+      - if !player_signed_in?
+        -# %li.navbar-divider
         %li
-          = link_to "Log in", main_app.new_user_session_path
+          = link_to "Log in", main_app.new_player_session_path
         %li
-          = link_to "Sign up", main_app.new_user_registration_path
+          = link_to "Sign up", main_app.new_player_registration_path
       - if mongoid_forums_user && mongoid_forums_user.mongoid_forums_admin?
         %li{class: active_controller('admin')}
           = link_to "Admin", mongoid_forums.admin_root_path

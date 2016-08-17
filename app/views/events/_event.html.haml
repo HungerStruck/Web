@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-body
+    .label.label-default 08:35
+    - if event.type == 'death' && event.killer
+      = player_tooltip_element(event.player.username, true, true)
+      was murdered by
+      = player_tooltip_element(event.killer.username, true, true)
+    - elsif event.type == 'death'
+      = player_tooltip_element(event.player.username, true, true)
+      died

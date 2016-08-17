@@ -17,36 +17,36 @@
               .version
                 Minecraft
                 %span 1.8
-          - if !current_user
+          - if !current_player
             .create-account
               or
               = link_to "create an account", new_user_registration_path
 
 .container
-  .home-matches
-    %h2 Matches currently playing
+  .home-games
+    %h2 Games currently playing
     .row-4
       .col
-        %a{href: '/matches/1'}
-          .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
-            .match-map UK
+        %a{href: '/games/1'}
+          .list-game-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+            .game-map UK
             .time
               %i.fa.fa-clock-o
               = rand(3..30).to_s + ':' + rand(10..59).to_s
       .col
-        %a{href: '/matches/2'}
-          .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
-            .match-map Greenland
+        %a{href: '/games/2'}
+          .list-game-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+            .game-map Greenland
             .time
               %i.fa.fa-clock-o
               = rand(3..30).to_s + ':' + rand(10..59).to_s
       .col
-        %a{href: '/matches/3'}
-          .list-match-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
-            .match-map Biodomes
+        %a{href: '/games/3'}
+          .list-game-playing{style: "background-image: url(#{image_url('home-bg.jpg')});"}
+            .game-map Biodomes
             .time
               %i.fa.fa-check-circle-o
-              Match Finished
+              Game Finished
   .row
     .col-4
       %p.text-muted SERVER STATISTICS
@@ -56,7 +56,7 @@
           %p
             %strong Players online
           %p
-            %strong Matches played
+            %strong Games played
         .col-6
           %p 163
           %p 1294
@@ -69,7 +69,7 @@
             .col-7
               %h3 Halftone
               %strong 50
-              matches won
+              games won
     .col-8
       %p.text-muted LATEST ANNOUNCEMENT
       .panel.panel-default
