@@ -4,7 +4,7 @@
     %header
       .row.-distribute-between.-no-gutter-vert
         .col
-          = user_tooltip_element(post.user.forum_display_name, true, false)
+          = player_tooltip_element(post.user.forum_display_name, true, false)
           %span.text-muted
             = time_ago_in_words(post.created_at)
             ago

@@ -42,7 +42,7 @@
       - if @posts.first_page? == true
         .topic-creator.panel.panel-default
           .panel-body.text-center{style: 'background-image: url("/assets/backgrounds/' + @topic.user.background_image.to_s + '.jpg")'}
-            =user_avatar(@topic.user.forum_display_name, 100)
+            =player_avatar(@topic.user.forum_display_name, 100)
             %h3= @topic.user.forum_display_name
           .panel-footer.topic-creator-footer
             .row.-no-gutter-vert
