@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-body
-    .label.label-default 08:35
+    .label.label-default= distance_of_time_in_words @game.started_at, event.time, include_seconds: true
     - if event.type == 'death' && event.killer
       = player_tooltip_element(event.player.username, true, true)
       was murdered by
@@ -8,3 +8,5 @@
     - elsif event.type == 'death'
       = player_tooltip_element(event.player.username, true, true)
       died
+    - elsif event.type == 'feast'
+      A feast has started

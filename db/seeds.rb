@@ -2,64 +2,62 @@ Player.collection.drop
 Game.collection.drop
 Event.collection.drop
 
+usernames = ['Komp', 'trevin', 'Hpt', 'skreem', 'Skipper_', 'TeddyTheTeddy', 'Halftone', 'molenzwiebel', 'ollyj', 'snatimal', 'ElMeegaBassKK', 'Mannrrys', 'InLoc', 'Snuskenmaxi', 'Picajoluna', 'FuriosoD1', 'Pebble', 'Zegita', 'lordblox', 'Saaturn', 'Koro_', 'xDutch', 'thesus101', 'Rauuh']
 
-username = 'leon'
-user = Player.new(
-  email: username + '@koole.io',
-  username: username,
-  password: 'leonkoole',
-  background_image: "default",
-  mongoid_admin: true
-)
-user.skip_confirmation!
-user.save!
-
-23.times do |i|
+24.times do |i|
   username = 'player' + i.to_s
   user = Player.new(
-    email: username + '@koole.io',
-    username: username,
-    password: username,
+    email: usernames[i] + '@koole.io',
+    username: usernames[i],
+    password: 'securepassword',
     background_image: "default"
   )
   user.skip_confirmation!
   user.save!
 end
 
-games = 5
+games = 1
+
+endtime = 0
 
 games.times do |i|
-  endtime = i * 35
+  time = rand(10..40)
+  players = (time / 1.2).round
+  feasts = (time / 5).floor
+
+  if players > 24
+    players = 24
+  end
+
+  livePlayers = Player.all.sample(players)
+
   game = Game.new(
-    players: Player.all,
-    started_at: (endtime + 30).minutes.ago,
+    players: livePlayers,
+    started_at: (endtime + time).minutes.ago,
     ended_at: endtime.minutes.ago,
     map: 'Biodomes',
     server: 'HS1'
   )
   game.save
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(1).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(2).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(3).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(3).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(4).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(5).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(6).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(7).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(8).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(9).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(10).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(11).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(12).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(13).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(14).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(15).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(16).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(17).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(18).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(19).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(20).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(21).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(22).first)
-  game.events.create(time: (endtime).minutes.ago, type: 'death', player: Player.skip(0).first, killer: Player.skip(23).first)
+
+  times = []
+
+  (players - 1).times do
+    times << rand(0..(60*time))
+  end
+
+  times.sort!
+  times.reverse!
+
+  (players - 1).times do |pi|
+    dead = livePlayers.pop
+    killer = livePlayers.sample
+    game.events.create(time: times[pi].seconds.ago, type: 'death', player: dead, killer: killer)
+  end
+
+  feasts.times do |fi|
+    game.events.create(time: (endtime + time - 5 * (fi + 1)).minutes.ago, type: 'feast')
+  end
+
+  endtime += time
 end

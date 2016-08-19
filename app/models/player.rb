@@ -31,4 +31,12 @@ class Player
   def forum_display_name
     email
   end
+
+  def kills
+    Event.where(killer: self).count
+  end
+
+  def deaths
+    self.events.count
+  end
 end

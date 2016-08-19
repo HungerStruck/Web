@@ -5,7 +5,7 @@ class Event
   belongs_to :player
   belongs_to :killer, :class_name => 'Player'
   
-  field :time, type: Date
+  field :time, type: DateTime
   field :type, type: String
 
   after_create { EventRelayJob.perform_later(self) }
