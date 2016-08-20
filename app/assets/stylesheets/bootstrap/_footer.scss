@@ -3,7 +3,7 @@ footer {
   color: #fff;
   .footer-signup {
     padding: 30px 0;
-    background-image: image-url("sign-up-background.svg"), linear-gradient(to right, #ff3131 0%, #ca0000 100%);
+    background-image: image-url("sign-up-background.svg"), linear-gradient(to right, $brand-secondary 0%, $brand-primary 100%);
     background-position: center center;
     .btn {
       margin-left: 10px;

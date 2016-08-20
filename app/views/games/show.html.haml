@@ -1,44 +1,76 @@
 - content_for :head do
-  - title 'Biodomes on May 24th, 2016 at 15:27'
+  - title @game.map + ' on ' + @game.started_at.strftime("%B %d, %Y at %H:%M")
   = javascript_include_tag "game_report"
 
   = javascript_tag do
     window.gameId = '#{@game.id}';
 
-.mega-header{style: "background-image: url(#{image_url('home-bg.jpg')});"}
-  .page-header
-    .container
-      .row.-no-gutter
-        .col
-          %h1 Game Report
-  .game-report-header
-    .container
-      .row
-        .col-8.game-winner
-          .game-place FIRST PLACE
-          =player_avatar(@players_sorted.first.username, 150)
-          .game-winner-info
-            %h2= @players_sorted.first.username
-            .row
-              .col
-                .stat-num= @players_sorted.first.kills
-                .stat-desc Kills
-              .col
-                .stat-num 24
-                .stat-desc Minutes Alive
-              .col
-                .stat-num 284
-                .stat-desc Other stat
-        .col-4
-          .game-place SECOND PLACE
-          %h2
-            =player_avatar(@players_sorted[1].username, 50)
-            = @players_sorted[1].username
-          .game-place THIRD PLACE
-          %h2
-            =player_avatar(@players_sorted[2].username, 50)
-            = @players_sorted[2].username
+- url = 'maps/' + @game.map.squish.downcase.tr(" ","_") + '/360/'
 
+.mega-header
+  .mega-header-background
+    .cube-container#view-1
+      .camera
+        .cube
+          .side.side1{style: "background-image: url(#{image_url(url + 'front.png')});"}
+          .side.side2{style: "background-image: url(#{image_url(url + 'right.png')});"}
+          .side.side3{style: "background-image: url(#{image_url(url + 'back.png')});"}
+          .side.side4{style: "background-image: url(#{image_url(url + 'left.png')});"}
+          .side.side5{style: "background-image: url(#{image_url(url + 'top.png')});"}
+          .side.side6{style: "background-image: url(#{image_url(url + 'bottom.png')});"}
+    .cube-container#view-2{style: 'opacity: 0;'}
+      .camera
+        .cube
+          .side.side1{style: "background-image: url(#{image_url(url + 'front2.png')});"}
+          .side.side2{style: "background-image: url(#{image_url(url + 'right2.png')});"}
+          .side.side3{style: "background-image: url(#{image_url(url + 'back2.png')});"}
+          .side.side4{style: "background-image: url(#{image_url(url + 'left2.png')});"}
+          .side.side5{style: "background-image: url(#{image_url(url + 'top2.png')});"}
+          .side.side6{style: "background-image: url(#{image_url(url + 'bottom2.png')});"}
+    .cube-container#view-3{style: 'opacity: 0;'}
+      .camera
+        .cube
+          .side.side1{style: "background-image: url(#{image_url(url + 'front3.png')});"}
+          .side.side2{style: "background-image: url(#{image_url(url + 'right3.png')});"}
+          .side.side3{style: "background-image: url(#{image_url(url + 'back3.png')});"}
+          .side.side4{style: "background-image: url(#{image_url(url + 'left3.png')});"}
+          .side.side5{style: "background-image: url(#{image_url(url + 'top3.png')});"}
+          .side.side6{style: "background-image: url(#{image_url(url + 'bottom3.png')});"}
+  .mega-header-content
+    .page-header
+      .container
+        .row.-no-gutter
+          .col
+            %h1
+              = @game.map
+              %small= @game.started_at.strftime("%B %d, %Y at %H:%M")
+    .game-report-header
+      .container
+        .row
+          .col-8.game-winner
+            .game-place FIRST PLACE
+            =player_avatar(@players_sorted.first.username, 150)
+            .game-winner-info
+              %h2= @players_sorted.first.username
+              .row
+                .col
+                  .stat-num= @players_sorted.first.kills
+                  .stat-desc Kills
+                .col
+                  .stat-num 24
+                  .stat-desc Minutes Alive
+                .col
+                  .stat-num 284
+                  .stat-desc Other stat
+          .col-4
+            .game-place SECOND PLACE
+            %h2
+              =player_avatar(@players_sorted[1].username, 50)
+              = @players_sorted[1].username
+            .game-place THIRD PLACE
+            %h2
+              =player_avatar(@players_sorted[2].username, 50)
+              = @players_sorted[2].username
 .container
   .row.game-specifics
     .col
@@ -55,18 +87,6 @@
       %strong.text-uppercase Shortest Time Alive
       %h3= player_tooltip_element(@players_sorted.last.username, true, false)
   %hr
-  -# .row
-  -#   .col-12.col-md-6.col-lg-4
-  -#     %h2.page-header Ranking
-  -#     .panel.panel-default
-  -#       %ul.list-group
-  -#         - 24.times do |i|
-  -#           %a.list-group-item{href: "/p/Halftone"}
-  -#             %span.badge= (29 - i).to_s + ":" + rand(10..59).to_s
-  -#             .row.-no-gutter
-  -#               .col-1= i + 1
-  -#               .col-11 Playername
-  -#   .col-12.col-md-6.col-lg-8
   %div
     %div
       %h2.page-header Event timeline
@@ -99,9 +119,9 @@
                   .hor-line
             .game-timeline-text
               - if event[:type] == 'death' && event[:killer]
-                = player_tooltip_element(event[:player].username, true, true)
-                was murdered by
                 = player_tooltip_element(event[:killer].username, true, true)
+                killed
+                = player_tooltip_element(event[:player].username, true, true)
               - elsif event[:type] == 'death'
                 = player_tooltip_element(event[:player].username, true, true)
                 died

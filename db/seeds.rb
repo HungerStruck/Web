@@ -35,7 +35,7 @@ games.times do |i|
     players: livePlayers,
     started_at: (endtime + time).minutes.ago,
     ended_at: endtime.minutes.ago,
-    map: 'Biodomes',
+    map: 'Mellow Forests',
     server: 'HS1'
   )
   game.save

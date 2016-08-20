@@ -98,6 +98,7 @@
 .mega-header {
   background-size: cover;
   background: center;
+  position: relative;
   .page-header {
     border: none;
     background-color: transparentize($gray-dark, 0.3);
@@ -106,6 +107,96 @@
     padding-top: 22px;
   }
 }
+
+.mega-header-background {
+  background: black;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.mega-header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cube-container {
+  position:absolute;
+  height:200px;
+  width:200px;
+  left:50%;
+  top:50%;
+  transform: translateX(-50%) translateY(-50%);
+  perspective: 370px;
+  opacity: 0.6;
+  transition: opacity 0.5s;
+}
+
+.camera {
+  transform-style:preserve-3d;
+  animation:camera 50s infinite ease;
+}
+
+.cube {
+  height:200px;
+  widht:200px;
+  transform-origin:50% 50%;
+  transform-style:preserve-3d;
+  animation:rotate 60s infinite linear;
+}
+.side {
+  position:absolute;
+  display:block;
+  height:201px;
+  width:201px;
+  background-size: cover;
+}
+.side1 {
+  transform:translateZ(100px);
+}
+.side2 {
+  transform:rotateY(90deg) translateZ(100px);
+}
+.side3 {
+  transform:rotateY(180deg) translateZ(100px);
+}
+.side4 {
+  transform:rotateY(-90deg) translateZ(100px);
+}
+.side5 {
+  transform:rotateX(90deg) translateZ(100px);
+}
+.side6 {
+  transform:rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes rotate{
+  0%{
+    transform:rotateX(0deg) rotateY(0deg);
+  }
+  100%{
+    transform:rotateX(0deg) rotateY(360deg);
+  }
+}
+@keyframes camera{
+  0%{
+    transform:translateZ(360px) rotateX(0deg);
+  }
+  33%{
+    transform:translateZ(360px) rotateX(-10deg);
+  }
+  66%{
+    transform:translateZ(360px) rotateX(10deg);
+  }
+  100%{
+    transform:translateZ(360px) rotateX(0deg);
+  }
+}
+
 
 $timeline-dot-size: 11px;
 $timeline-row-height: 50px;
