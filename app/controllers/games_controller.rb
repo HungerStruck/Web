@@ -83,7 +83,6 @@ class GamesController < ApplicationController
 
     @timeline_events.reverse!
 
-    @events = @game.events.reverse
     # expires_in 2.minutes, :public => true
   end
 

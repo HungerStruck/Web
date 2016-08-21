@@ -6,8 +6,11 @@ $(document).on 'turbolinks:load', ->
       roomId: roomId
     },
       connected: ->
+        console.log 'connected'
+      subscribed: ->
+        console.log 'subscribed'
       disconnected: ->
       received: (data) ->
         console.log data
-        $('#game-timeline').prepend data.event
+        $('#timeline-container').html data.event
     )
