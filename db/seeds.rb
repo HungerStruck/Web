@@ -16,11 +16,10 @@ usernames = ['Komp', 'trevin', 'Hpt', 'skreem', 'Skipper_', 'TeddyTheTeddy', 'Ha
   user.save!
 end
 
-games = 1
-
-endtime = 0
-
+games = 20
+starttime = 10
 games.times do |i|
+
   time = rand(10..40)
   players = (time / 1.2).round
   feasts = (time / 5).floor
@@ -29,15 +28,28 @@ games.times do |i|
     players = 24
   end
 
-  livePlayers = Player.all.sample(players)
+  live_players = Player.all.sample(players)
 
   game = Game.new(
-    players: livePlayers,
-    started_at: (endtime + time).minutes.ago,
-    ended_at: endtime.minutes.ago,
+    players: live_players,
+    started_at: (starttime + time).minutes.ago,
+    ended_at: starttime.minutes.ago,
     map: 'Mellow Forests',
     server: 'HS1'
   )
+
+  if i == 1
+    game = Game.new(
+      players: live_players,
+      started_at: (starttime + time).minutes.ago,
+      ended_at: starttime.minutes.ago,
+      map: 'Mellow Forests',
+      server: 'HS1',
+      name: 'The Best Event',
+      event: true
+    )
+  end
+
   game.save
 
   times = []
@@ -50,14 +62,14 @@ games.times do |i|
   times.reverse!
 
   (players - 1).times do |pi|
-    dead = livePlayers.pop
-    killer = livePlayers.sample
-    game.events.create(time: times[pi].seconds.ago, type: 'death', player: dead, killer: killer)
+    dead = live_players.pop
+    killer = live_players.sample
+    game.events.create(time: (starttime * 60 + times[pi]).seconds.ago, type: 'death', player: dead, killer: killer)
   end
 
   feasts.times do |fi|
-    game.events.create(time: (endtime + time - 5 * (fi + 1)).minutes.ago, type: 'feast')
+    game.events.create(time: (starttime + time - 5 * (fi + 1)).minutes.ago, type: 'feast')
   end
 
-  endtime += time
+  starttime += time + 5
 end

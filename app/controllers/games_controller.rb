@@ -5,6 +5,10 @@ class GamesController < ApplicationController
     expires_in 2.minutes, :public => true
   end
 
+  def events
+    @finished_games = Game.where(event: true)
+  end
+
   def show
     col_width = 29
 

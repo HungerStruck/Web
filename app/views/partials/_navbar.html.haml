@@ -10,6 +10,8 @@
         = link_to "Forums", mongoid_forums.root_path
       %li{class: active_controller('games')}
         = link_to "Games", main_app.games_path
+      %li{class: active_controller('games')}
+        = link_to "Events", main_app.events_path
       - if !player_signed_in?
         -# %li.navbar-divider
         %li

@@ -42,8 +42,12 @@
         .row.-no-gutter
           .col
             %h1
-              = @game.map
-              %small= @game.started_at.strftime("%B %d, %Y at %H:%M")
+              - if @game.name
+                = @game.name
+                %small= @game.started_at.strftime("%B %d, %Y at %H:%M")
+              - else 
+                = @game.map
+                %small= @game.started_at.strftime("%B %d, %Y at %H:%M")
     .game-report-header
       .container
         .row

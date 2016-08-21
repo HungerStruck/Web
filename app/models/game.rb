@@ -6,6 +6,9 @@ class Game
   field :started_at, type: DateTime
   field :ended_at, type: DateTime
 
+  field :event, type: Boolean, default: false
+  field :name, type: String
+
   field :map,  type: String # will be map object eventually
   field :server, type: String # e.g hs7
 end

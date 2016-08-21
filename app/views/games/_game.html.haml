@@ -1,8 +1,10 @@
 %a.panel.panel-default{href: '/games/' + game.id}
   .panel-body
-    =player_tooltip_element('Halftone', false, true)
-    won on
+    - if game.name
+      %h3.page-header.text-center= game.name
     = game.map
+    won by
+    =player_tooltip_element('Halftone', false, true)
     .pull-right
       .label.label-default
         minutes
