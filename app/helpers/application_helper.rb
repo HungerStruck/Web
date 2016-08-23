@@ -34,6 +34,14 @@ module ApplicationHelper
     return snippet.render
   end
 
+  def player_avatar_tooltip(username, size)
+    player = Player.where(username: username).first
+    rank = 0
+    haml = '%img.avatar{src: "https://mcapi.ca/avatar/2d/' + username + '/' + size.to_s + '", "data-toggle" => "popover", "title" => "' + username + '", "data-placement" => "top", "data-content" => "player_tooltip", "data-kills" => "' + player.kills.to_s + '", "data-deaths" => "' + player.deaths.to_s + '", "data-rank" => "' + rank.to_s + '", "data-bg" => "' + player.background_image.to_s + '"}'
+    snippet = Haml::Engine.new(haml)
+    return snippet.render
+  end
+
   def player_avatar(username, size)
     haml = '%img.avatar{src: "https://mcapi.ca/avatar/2d/' + username + '/' + size.to_s + '"}'
     snippet = Haml::Engine.new(haml)

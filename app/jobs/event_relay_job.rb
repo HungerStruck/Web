@@ -2,7 +2,8 @@ class EventRelayJob < ApplicationJob
   queue_as :default
   
   def perform(event)
-    ActionCable.server.broadcast 'game_channel_' + event.game_id, event: render_event(event)
+    ActionCable.server.broadcast 'game_channel_' + event.game.id, event: render_event(event)
+    # ActionCable.server.broadcast 'game_channel_' + event.game.id, event: 'test'
   end
 
   private
@@ -10,6 +11,7 @@ class EventRelayJob < ApplicationJob
       game = event.game
 
       player_count = game.players.count
+      col_width = 29
 
       # This part sorts the players in to the correct order
       players_sorted = []
@@ -25,17 +27,20 @@ class EventRelayJob < ApplicationJob
         end
       end
 
+
       players_sorted.reverse!
       players_hash = Hash[players_sorted.map.with_index.to_a] 
 
       # Creates the events for the timeline
       timeline_events = []
       spacing = 0
+
       timeline_events << {
         time: game.started_at,
         type: 'start',
         width: (col_width * player_count + col_width)
       }
+
       old_time = game.started_at
       game.events.asc(:time).each do |event|
         timeline_event = {

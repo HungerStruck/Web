@@ -176,10 +176,10 @@
 
 @keyframes rotate{
   0%{
-    transform:rotateX(0deg) rotateY(0deg);
+    transform:rotateX(0deg) rotateY(90deg);
   }
   100%{
-    transform:rotateX(0deg) rotateY(360deg);
+    transform:rotateX(0deg) rotateY(450deg);
   }
 }
 @keyframes camera{
@@ -197,6 +197,19 @@
   }
 }
 
+.game-overview-col {
+  position: relative
+}
+
+.game-overview {
+  position: absolute;
+  .avatar {
+    width: 12.5%;
+    margin: 0;
+    float: left;
+    padding: 5px;
+  }
+}
 
 $timeline-dot-size: 11px;
 $timeline-row-height: 50px;
