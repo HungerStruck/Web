@@ -29,7 +29,7 @@ class Player
   field :background_image,      type: String, default: "default"
 
   def forum_display_name
-    email
+    username
   end
 
   def kills

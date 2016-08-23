@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require chart
 //= require bootstrap
+//= require reply_to
 //= require player_tooltip
 
 //= require peek

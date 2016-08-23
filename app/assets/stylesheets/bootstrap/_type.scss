@@ -15,6 +15,7 @@ h1, h2, h3, h4, h5, h6,
 
   small,
   .small {
+    font-weight: inherit;
     line-height: 1;
     color: inherit;
   }
@@ -98,6 +99,8 @@ mark,
   padding: .2em;
 }
 // Styling
+.text-light          { font-weight: 300 }
+.text-regular          { font-weight: 500 }
 .text-bold           { font-weight: bold }
 .text-italic         { font-style: italic }
 .text-monospace      { font-family: $font-family-monospace }
