@@ -100,7 +100,16 @@
       .game-overview
         .panel.panel-default
           .panel-body
-            %h3 Participants
+            %h3 Time
+            %strong STARTED AT
+            %p= @game.started_at.strftime("%B %d, %Y at %H:%M")
+            %strong FINISHED AT
+            %p= @game.ended_at.strftime("%B %d, %Y at %H:%M")
+            %h3 Server
+            .panel.panel-default
+              .panel-body
+                HS1
+            %h3 Participants (#{@players_sorted.count})
             - @players_sorted.each_with_index do |player, i|
               =player_avatar_tooltip(player.username, 50)
 
