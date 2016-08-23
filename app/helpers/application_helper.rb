@@ -3,8 +3,8 @@ module ApplicationHelper
     return 'active' if params[:controller] == controller
   end
 
-  def user_tooltip_element(username, link, strong)
-    user = User.where(username: username)
+  def player_tooltip_element(username, link, strong)
+    player = Player.where(username: username)
 
     start = ""
     if strong == true && link == false
@@ -17,12 +17,12 @@ module ApplicationHelper
       start = '%a{ href: "/p/' + username + '", '
     end
 
-    if user.length > 0
-      userData = user.first
-      kills = userData.kills
-      deaths = userData.deaths
+    if player.length > 0
+      player_data = player.first
+      kills = player_data.kills
+      deaths = player_data.deaths
       rank = '??'
-      background = userData.background_image
+      background = player_data.background_image
 
       snippet = ""
       
@@ -34,7 +34,15 @@ module ApplicationHelper
     return snippet.render
   end
 
-  def user_avatar(username, size)
+  def player_avatar_tooltip(username, size)
+    player = Player.where(username: username).first
+    rank = 0
+    haml = '%img.avatar{src: "https://mcapi.ca/avatar/2d/' + username + '/' + size.to_s + '", "data-toggle" => "popover", "title" => "' + username + '", "data-placement" => "top", "data-content" => "player_tooltip", "data-kills" => "' + player.kills.to_s + '", "data-deaths" => "' + player.deaths.to_s + '", "data-rank" => "' + rank.to_s + '", "data-bg" => "' + player.background_image.to_s + '"}'
+    snippet = Haml::Engine.new(haml)
+    return snippet.render
+  end
+
+  def player_avatar(username, size)
     haml = '%img.avatar{src: "https://mcapi.ca/avatar/2d/' + username + '/' + size.to_s + '"}'
     snippet = Haml::Engine.new(haml)
     return snippet.render

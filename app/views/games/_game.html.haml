@@ -1,0 +1,16 @@
+%a.panel.panel-default{href: '/games/' + game.id}
+  .panel-body
+    - if game.name
+      %h3.page-header.text-center= game.name
+    = game.map
+    won by
+    =player_tooltip_element('Halftone', false, true)
+    .pull-right
+      .label.label-default
+        minutes
+    .small
+      = game.started_at.strftime("%B %d, %Y at %H:%M")
+      = game.ended_at.strftime("%B %d, %Y at %H:%M")
+      ,
+      = game.players.count
+      players

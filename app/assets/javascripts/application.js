@@ -15,14 +15,10 @@
 //= require turbolinks
 //= require chart
 //= require bootstrap
-//= require user_tooltip
+//= require player_tooltip
 
 //= require peek
 //= require peek/views/rblineprof
 //= require peek/views/performance_bar
 
-document.addEventListener("turbolinks:load", function() {
-  $("#play-button").click(function() {
-    $(this).addClass("activated");
-  });
-});
+//= require_tree .

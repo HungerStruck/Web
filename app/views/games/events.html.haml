@@ -1,0 +1,11 @@
+- content_for :head do
+  - title 'Games'
+.page-header
+  .container
+    .row.-no-gutter
+      .col
+        %h1 Events
+.container
+  .row
+    .col-8
+      = render @finished_games

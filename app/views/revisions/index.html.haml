@@ -12,7 +12,7 @@
           %strong= c.message
         .data.pull-right
           .author
-            - u = User.where(email: c.author.email).first
+            - u = Player.where(email: c.author.email).first
             - if u
               #{c.author.name} (#{link_to(u.username, "/#{u.username}")})
             - else

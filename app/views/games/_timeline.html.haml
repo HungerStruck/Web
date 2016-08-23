@@ -1,0 +1,45 @@
+.game-timeline
+  - events.each_with_index do |event, i|
+    .game-timeline-line
+      .game-timeline-timestamp
+        - if event[:type] != 'blank' && event[:type] != 'win'
+          / = event[:time]
+          = distance_of_time_in_words(event[:time], game.started_at)
+          / = event[:spacing]
+      .game-timeline-visual{style: 'width: ' + event[:width].to_s + 'px; height: ' + events[i-1][:spacing].to_s + 'px'}
+        .game-timeline-visual-content
+          - if event[:type] == 'death' && event[:killer]
+            .killer-line{style: 'left: ' + (event[:killer_row] + 9).to_s + 'px; width:' + event[:killer_line].to_s + 'px'}
+            .killer-dot{style: 'left: ' + event[:killer_row].to_s + 'px'}
+          - if event[:type] == 'death'
+            .death-dot
+          - elsif event[:type] == 'win'
+            .text-icon.-gold
+              %i.fa.fa-trophy
+            .win-dot
+          - elsif event[:type] == 'feast'
+            .text-icon
+              %i.fa.fa-medkit
+            .hor-line
+          - elsif event[:type] == 'start'
+            .text-icon
+              %i.fa.fa-flag
+            .hor-line
+      .game-timeline-text
+        - if event[:type] == 'death' && event[:killer]
+          = player_tooltip_element(event[:killer].username, true, true)
+          killed
+          = player_tooltip_element(event[:player].username, true, true)
+        - elsif event[:type] == 'death'
+          = player_tooltip_element(event[:player].username, true, true)
+          died
+        - elsif event[:type] == 'feast'
+          A feast has occurred
+        - elsif event[:type] == 'win'
+          = player_tooltip_element(event[:player].username, true, true)
+          has won the match
+        - elsif event[:type] == 'start'
+          The match has started
+.game-timeline-users
+  - players.each do |player|
+    .game-timeline-username= player.username

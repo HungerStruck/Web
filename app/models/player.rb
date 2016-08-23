@@ -1,5 +1,8 @@
-class User
+class Player
   include Mongoid::Document
+  has_many :events
+  has_and_belongs_to_many :games
+
   devise :database_authenticatable, :registerable,
          :recoverable, :confirmable, :rememberable, :validatable
 
@@ -23,11 +26,17 @@ class User
   field :username,  type: String
   field :uuid,      type: String
 
-  field :kills,                 type: Integer, default: 0
-  field :deaths,                type: Integer, default: 0
-  field :background_image,      type: Integer, default: 0
+  field :background_image,      type: String, default: "default"
 
   def forum_display_name
     email
+  end
+
+  def kills
+    Event.where(killer: self).count
+  end
+
+  def deaths
+    self.events.count
   end
 end

@@ -1,0 +1,117 @@
+- content_for :head do
+  - title @game.map + ' on ' + @game.started_at.strftime("%B %d, %Y at %H:%M")
+  = javascript_include_tag "game_report"
+
+  = javascript_tag do
+    window.gameId = '#{@game.id}';
+
+- url = 'maps/' + @game.map.squish.downcase.tr(" ","_") + '/360/'
+
+.mega-header
+  .mega-header-background
+    .cube-container#view-1
+      .camera
+        .cube
+          .side.side1{style: "background-image: url(#{image_url(url + '1/front.png')});"}
+          .side.side2{style: "background-image: url(#{image_url(url + '1/right.png')});"}
+          .side.side3{style: "background-image: url(#{image_url(url + '1/back.png')});"}
+          .side.side4{style: "background-image: url(#{image_url(url + '1/left.png')});"}
+          .side.side5{style: "background-image: url(#{image_url(url + '1/top.png')});"}
+          .side.side6{style: "background-image: url(#{image_url(url + '1/bottom.png')});"}
+    .cube-container#view-2{style: 'opacity: 0;'}
+      .camera
+        .cube
+          .side.side1{style: "background-image: url(#{image_url(url + '2/front.png')});"}
+          .side.side2{style: "background-image: url(#{image_url(url + '2/right.png')});"}
+          .side.side3{style: "background-image: url(#{image_url(url + '2/back.png')});"}
+          .side.side4{style: "background-image: url(#{image_url(url + '2/left.png')});"}
+          .side.side5{style: "background-image: url(#{image_url(url + '2/top.png')});"}
+          .side.side6{style: "background-image: url(#{image_url(url + '2/bottom.png')});"}
+    .cube-container#view-3{style: 'opacity: 0;'}
+      .camera
+        .cube
+          .side.side1{style: "background-image: url(#{image_url(url + '3/front.png')});"}
+          .side.side2{style: "background-image: url(#{image_url(url + '3/right.png')});"}
+          .side.side3{style: "background-image: url(#{image_url(url + '3/back.png')});"}
+          .side.side4{style: "background-image: url(#{image_url(url + '3/left.png')});"}
+          .side.side5{style: "background-image: url(#{image_url(url + '3/top.png')});"}
+          .side.side6{style: "background-image: url(#{image_url(url + '3/bottom.png')});"}
+  .mega-header-content
+    .page-header
+      .container
+        .row.-no-gutter
+          .col
+            %h1
+              - if @game.name
+                = @game.name
+                %small= @game.started_at.strftime("%B %d, %Y at %H:%M")
+              - else 
+                = @game.map
+                %small= @game.started_at.strftime("%B %d, %Y at %H:%M")
+    .game-report-header
+      .container
+        .row
+          .col-8.game-winner
+            .game-place FIRST PLACE
+            =player_avatar(@players_sorted.first.username, 150)
+            .game-winner-info
+              %h2= @players_sorted.first.username
+              .row
+                .col
+                  .stat-num= @players_sorted.first.kills
+                  .stat-desc Kills
+                .col
+                  .stat-num 24
+                  .stat-desc Minutes Alive
+                .col
+                  .stat-num 284
+                  .stat-desc Other stat
+          .col-4
+            .game-place SECOND PLACE
+            %h2
+              =player_avatar(@players_sorted[1].username, 50)
+              = @players_sorted[1].username
+            .game-place THIRD PLACE
+            %h2
+              =player_avatar(@players_sorted[2].username, 50)
+              = @players_sorted[2].username
+.container
+  .row.game-specifics
+    .col
+      / %strong.text-uppercase Most Kills
+      %strong.text-uppercase Other stat 
+      %h3= player_tooltip_element('Halftone', true, false)
+    .col
+      %strong.text-uppercase Other stat
+      %h3= player_tooltip_element('Halftone', true, false)
+    .col
+      %strong.text-uppercase Other stat
+      %h3= player_tooltip_element('Halftone', true, false)
+    .col
+      %strong.text-uppercase Shortest Time Alive
+      %h3= player_tooltip_element(@players_sorted.last.username, true, false)
+%hr
+.container
+  .row.-no-gutter-vert
+    .col-8
+      %h2.page-header Event timeline
+    .col-4.game-overview-col
+      %h2.page-header Game Overview
+      .game-overview
+        .panel.panel-default
+          .panel-body
+            %h3 Time
+            %strong STARTED AT
+            %p= @game.started_at.strftime("%B %d, %Y at %H:%M")
+            %strong FINISHED AT
+            %p= @game.ended_at.strftime("%B %d, %Y at %H:%M")
+            %h3 Server
+            .panel.panel-default
+              .panel-body
+                HS1
+            %h3 Participants (#{@players_sorted.count})
+            - @players_sorted.each_with_index do |player, i|
+              =player_avatar_tooltip(player.username, 50)
+
+  #timeline-container
+    = render 'timeline', game: @game, events: @timeline_events, players: @players_sorted
