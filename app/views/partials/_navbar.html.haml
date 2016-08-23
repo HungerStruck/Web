@@ -12,6 +12,8 @@
         = link_to "Games", main_app.games_path
       %li{class: active_controller('games')}
         = link_to "Events", main_app.events_path
+      %li{class: active_controller('maps')}
+        = link_to "Maps", main_app.maps_path
       - if !player_signed_in?
         -# %li.navbar-divider
         %li

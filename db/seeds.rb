@@ -1,6 +1,7 @@
 Player.collection.drop
 Game.collection.drop
 Event.collection.drop
+Map.collection.drop
 
 usernames = ['Komp', 'trevin', 'Hpt', 'skreem', 'Skipper_', 'TeddyTheTeddy', 'Halftone', 'molenzwiebel', 'ollyj', 'snatimal', 'ElMeegaBassKK', 'Mannrrys', 'InLoc', 'Snuskenmaxi', 'Picajoluna', 'FuriosoD1', 'Pebble', 'Zegita', 'lordblox', 'Saaturn', 'Koro_', 'xDutch', 'thesus101', 'Rauuh']
 

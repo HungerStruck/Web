@@ -100,11 +100,14 @@
       .game-overview
         .panel.panel-default
           .panel-body
-            %h3 Time
             %strong STARTED AT
             %p= @game.started_at.strftime("%B %d, %Y at %H:%M")
             %strong FINISHED AT
             %p= @game.ended_at.strftime("%B %d, %Y at %H:%M")
+            %h3 Map
+            .panel.panel-default
+              .panel-body
+                Mellow Forests
             %h3 Server
             .panel.panel-default
               .panel-body
